@@ -1,6 +1,21 @@
+<h3>Hey, <%= @user.name.upcase %></h3>
+
+
 <% if @incomes %>
     <% @incomes.each do |i| %>
-        SOURCE: <%= i.source %><p>
-        SALARY: <%= i.amount %> 
+        SOURCE: <li><%= i.source %></li>
+        SALARY: <li><%= i.amount %></li> 
     <% end %>
 <% end %>
+
+<p>
+
+SHOW FOR THIS SPECIFIC SOURCE OF INCOME THE ALLOCATION TOWARDS:
+<p>
+SAVINGS |
+
+EXPENSES |
+
+INVESTMENTS | 
+
+<%= link_to "DASHBOARD", user_path(@user) %>
