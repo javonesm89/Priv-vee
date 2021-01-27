@@ -1,5 +1,7 @@
 <%= form_for(@user) do |f| %>
     <%= fields_for(@income) do |i| %>
-        SOURCE:
+        SOURCE: <%= i.text_field :source %>
+        AMOUNT: <%= i.number_field :amount %>
     <% end %>
+    <%= f.submit "ADD INCOME" %>
 <% end %>
