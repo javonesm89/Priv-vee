@@ -1,6 +1,7 @@
 class IncomesController < ApplicationController
     def new
-        if params[:id] && @user = User.find_by_id(params[:id])
+        # binding.pry
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @income = @user.incomes.build
         end
     end
