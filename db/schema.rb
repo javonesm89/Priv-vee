@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_212101) do
 
   create_table "savings", force: :cascade do |t|
     t.string "source"
-    t.integer "amount"
+    t.integer "amount", default: 0
     t.integer "off_percent", default: 0
     t.integer "user_id", null: false
     t.integer "income_id", null: false
