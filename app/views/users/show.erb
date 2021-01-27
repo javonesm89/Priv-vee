@@ -5,7 +5,16 @@ DASHBOARD:
 
 INCOME:
 <p>
+<% if @user.incomes %>
+    <% @user.incomes.each do |i| %>
+        <%= i.source %>
+    <% end %>
+<% end %>
+
+<p>
+
 <%= link_to "ADD INCOME", new_user_income_path(@user) %>
+
 <p>
 
 SAVINGS |
