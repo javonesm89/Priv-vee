@@ -1,11 +1,23 @@
+<% if @errors %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@errors.count, "error") %> prohibited you from saving this expense:</h2>
+    <ul>
+      <% @errors.each.uniq do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
+
+ADD AN EXPENSE
+<p>
 
 <%= form_for(@expense) do |f| %>
     <%= f.hidden_field :user_id %>
     INCOME: <%= f.collection_select :income_id, @incomes, :id, :source, {:include_blank => true} %><p>
-    STRATEGY: <%= f.text_field :source, :placeholder => 'RENT' %><p>
+    STRATEGY: <%= f.text_field :source, :placeholder => 'RENT or INTERNET' %><p>
     AMOUNT: <%= f.number_field :amount %>
-    <p>OR
-    PERCENT: <%= f.number_field :off_percent %>
+    <p>
     <%= f.submit "SUBMIT" %>
 <% end %>
