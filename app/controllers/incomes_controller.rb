@@ -1,12 +1,4 @@
-class IncomesController < ApplicationController
-    
-    def index
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @incomes = @user.incomes
-        end
-    end
-    
-    
+class IncomesController < ApplicationController    
     
     def new
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
@@ -18,7 +10,7 @@ class IncomesController < ApplicationController
         if session[:user_id] && User.find_by(:id => session[:user_id])
             @income = Income.new(income_params)
             if @income.save
-                redirect_to user_incomes_path(@income.user)
+                redirect_to user_path(@income.user)
             else
                 render :new
             end
