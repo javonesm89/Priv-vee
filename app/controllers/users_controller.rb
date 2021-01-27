@@ -20,7 +20,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            # binding.pry
+            flash[:alert] = 'UNABLE TO REGISTER!'
             render :new
         end
     end
