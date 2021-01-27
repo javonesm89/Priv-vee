@@ -1,7 +1,7 @@
 class IncomesController < ApplicationController
     def new
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @income = @user.incomes.build
+            @income = Income.new(:user_id => @user.id)
         end
     end
 
