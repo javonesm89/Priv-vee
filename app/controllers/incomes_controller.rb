@@ -4,4 +4,15 @@ class IncomesController < ApplicationController
             @income = @user.incomes.build
         end
     end
+
+    def create
+        binding.pry
+    end
+
+    private
+
+    def income_params
+        params.require(:income).permit(:source,:amount,:user_id)
+    end
+
 end
