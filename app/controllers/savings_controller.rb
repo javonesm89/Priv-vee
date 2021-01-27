@@ -9,7 +9,7 @@ class SavingsController < ApplicationController
     def create
         if session[:user_id] && User.find_by(:id => session[:user_id])
             @saving = Saving.new(savings_params)
-            if @income.save
+            if @saving.save
                 redirect_to user_path(@saving.user)
             else
                 render :new
