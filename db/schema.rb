@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_170654) do
+ActiveRecord::Schema.define(version: 2021_01_27_212101) do
 
   create_table "expenses", force: :cascade do |t|
     t.string "source"
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 2021_01_27_170654) do
   create_table "savings", force: :cascade do |t|
     t.string "source"
     t.integer "amount"
-    t.integer "percent", default: 0
-    t.integer "income_id", null: false
+    t.integer "off_percent"
     t.integer "user_id", null: false
+    t.integer "income_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["income_id"], name: "index_savings_on_income_id"
