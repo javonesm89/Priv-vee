@@ -1,0 +1,6 @@
+<% if @incomes %>
+    <% @incomes.each do |i| %>
+        SOURCE: <%= i.source %><p>
+        SALARY: <%= i.amount %> 
+    <% end %>
+<% end %>
