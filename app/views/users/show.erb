@@ -8,9 +8,11 @@ INCOME:
 <% if @user.incomes %>
     <% @user.incomes.each do |i| %>
         <%= i.source %>
+        <p>
     <% end %>
 <% end %>
-
+<p>
+MAKE LINK TO SOURCE AND SHOW BREAK DOWN OF SAVNGS, EXPENSES, INVESTMENTS
 <p>
 
 <%= link_to "ADD INCOME", new_user_income_path(@user) %>
