@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+    def show
+        if params[:id] && @user = User.find_by(:id => params[:id])
+            @user
+        else
+            flash[:alert] = 'MUST BE A MEMBER!'
+            redirect_to root_path
+        end
+    end
+    
     def new
         @user = User.new
     end
