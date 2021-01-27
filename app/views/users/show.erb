@@ -12,14 +12,17 @@ INCOME: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR INCOME
     <% end %>
 <% end %>
 <p>
+<%= link_to "ADD INCOME", new_user_income_path(@user) %>
+<p>
 MAKE LINK TO SOURCE AND SHOW BREAK DOWN OF SAVNGS, EXPENSES, INVESTMENTS
 <p>
 
-<%= link_to "ADD INCOME", new_user_income_path(@user) %>
 
 <p>
 
 SAVINGS: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR SAVINGS
+<p>
+<%= link_to "ADD SAVINGS", new_user_saving_path(@user) %>
 <p>
 
 EXPENSES: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR EXPENSES
