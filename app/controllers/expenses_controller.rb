@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
     def new
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @expense = @user.expenses.build
-            @expenses = @user.expenses
+            @incomes = @user.incomes
         end
     end
 
