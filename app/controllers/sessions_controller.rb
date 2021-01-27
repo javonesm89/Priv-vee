@@ -3,10 +3,6 @@ class SessionsController < ApplicationController
     end
 
     def create
-        if !params[:email]
-            flash[:alert] = "UNABLE TO LOGIN. TRY AGAIN."
-            redirect_to login_path
-        end
     end
 
     def destroy
