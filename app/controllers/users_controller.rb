@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def show
-        if params[:id] && @user = User.find_by(:id => params[:id])
+        if params[:id] && @user = User.find_by(:id => session[:user_id])
             @user
         else
             flash[:alert] = 'MUST BE A MEMBER!'
