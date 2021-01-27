@@ -29,10 +29,12 @@ SAVINGS: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR SAVINGS
     <% end %>
 <% end %>
 <p>
-<%= link_to "ADD SAVINGS", new_user_saving_path(@user) %>
+<%= link_to "ADD SAVING", new_user_saving_path(@user) %>
 <p>
 
 EXPENSES: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR EXPENSES
+<p>
+<%= link_to "ADD EXPENSE", new_user_expense_path(@user) %>
 <p>
 
 INVESTMENTS 
