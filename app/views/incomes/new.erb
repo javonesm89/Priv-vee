@@ -1,8 +1,6 @@
 ADD AN INCOME. DON'T FORGET TO ADD A SOURCE AS WELL.
 <p>
 <%= form_for(@income) do |f| %>
-<% binding.pry %>
-        <%= f.hidden_field :user_id %>
         SOURCE: <%= f.text_field :source, :placeholder => 'APPLE - ENGINGEER' %>
         AMOUNT: <%= f.number_field :amount, :placeholder => "115000" %>
     <%= f.submit "ADD INCOME" %>
