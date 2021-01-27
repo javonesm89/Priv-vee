@@ -1,4 +1,7 @@
 ADD A SAVING STRATEGY
 
 <%= form_for(@saving) do |f| %>
+    SOURCE: <%= f.text_field :source %>
+    AMOUNT <%= f.number_field :amount %>
+    <%= f.submit "SUBMIT" %>
 <% end %>
