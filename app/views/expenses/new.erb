@@ -1,3 +1,5 @@
+
+
 <%= form_for(@expense) do |f| %>
     <%= f.hidden_field :user_id %>
     INCOME: <%= f.collection_select :income_id, @incomes, :id, :source, {:include_blank => true} %><p>
