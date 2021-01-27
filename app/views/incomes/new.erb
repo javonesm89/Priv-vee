@@ -1,7 +1,7 @@
 ADD AN INCOME. DON'T FORGET TO ADD A SOURCE AS WELL.
 <p>
 <%= form_for(@user) do |f| %>
-    <%= fields_for(@income) do |i| %>
+    <%= fields_for(new_user_income_path) do |i| %>
         SOURCE: <%= i.text_field :source, :placeholder => 'APPLE - ENGINGEER' %>
         AMOUNT: <%= i.number_field :amount, :placeholder => "115000" %>
     <% end %>
