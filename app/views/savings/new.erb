@@ -1,7 +1,10 @@
 ADD A SAVING STRATEGY
-
+<p>
 <%= form_for(@saving) do |f| %>
-    SOURCE: <%= f.text_field :source %>
-    AMOUNT <%= f.number_field :amount %>
+    INCOME: <%= f.collection_select :income_id, @incomes, :id, :source, {:include_blank => true} %><p>
+    STRATEGY: <%= f.text_field :source %><p>
+    AMOUNT: <%= f.number_field :amount %>
+    <p>OR
+    PERCENT: <%= f.number_field :off_percent %>
     <%= f.submit "SUBMIT" %>
 <% end %>
