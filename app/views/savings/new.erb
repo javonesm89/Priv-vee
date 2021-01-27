@@ -3,6 +3,7 @@ ADD A SAVING STRATEGY
 <%= form_for(@saving) do |f| %>
         <%= f.hidden_field :user_id %>
         SOURCE: <%= f.text_field :source, :placeholder => 'APPLE - ENGINGEER' %>
+        PERCENT: <%= f.number_field :percent %>%
         AMOUNT: <%= f.number_field :amount, :placeholder => "115000" %>
     <%= f.submit "ADD SAVING" %>
 <% end %>
