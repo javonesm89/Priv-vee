@@ -7,7 +7,7 @@ INCOME: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR INCOME
 <p>
 <% if @user.incomes %>
     <% @user.incomes.each do |i| %>
-        <%= i.source %>
+        <li><%= i.source %></li>
         <p>
     <% end %>
 <% end %>
@@ -21,6 +21,13 @@ MAKE LINK TO SOURCE AND SHOW BREAK DOWN OF SAVNGS, EXPENSES, INVESTMENTS
 <p>
 
 SAVINGS: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR SAVINGS
+<p>
+<% if @user.savings %>
+    <% @user.savings.each do |s| %>
+        <li><%= s.source %></li>
+        <p>
+    <% end %>
+<% end %>
 <p>
 <%= link_to "ADD SAVINGS", new_user_saving_path(@user) %>
 <p>
