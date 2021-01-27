@@ -1,2 +1,7 @@
-CREATE ACCOUNT
+CREATE ACCOUNT:
 <%= form_for(@user) do |f| %>
+    Name: <%= f.text_field :name %>
+    Email: <%= f.email_field :email %>
+    Password: <%= f.password_field :password %>
+    <%= f.submit "CREATE" %>
+<% end %>
