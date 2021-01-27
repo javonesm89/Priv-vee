@@ -12,6 +12,7 @@ class SavingsController < ApplicationController
             if @saving.save
                 redirect_to user_path(@saving.user)
             else
+                @incomes = @saving.user.incomes
                 @errors = @saving.errors.full_messages
                 render :new
             end
