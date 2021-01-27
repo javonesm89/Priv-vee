@@ -9,4 +9,10 @@ class SavingsController < ApplicationController
     def create
         binding.pry
     end
+
+    private
+
+    def savings_param
+        params.require(:saving).permit(:source,:amount,:off_percent,:income_id,:user_id)
+    end
 end
