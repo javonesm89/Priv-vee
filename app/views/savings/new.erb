@@ -1,0 +1,7 @@
+ADD A SAVING STRATEGY
+
+<%= form_for(@saving) do |f| %>
+    SOURCE: <%= f.hidden_field :source %>
+    AMOUNT: <%= f.hidden_field :amount %>
+    <%= f.submit "ADD SAVING" %>
+<% end%>
