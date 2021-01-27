@@ -1,4 +1,13 @@
 class IncomesController < ApplicationController
+    
+    def index
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @incomes = @user.incomes
+        end
+    end
+    
+    
+    
     def new
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @income = @user.incomes.build
