@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :incomes, :shallow => true
-    resources :expenses
-    resources :savings
+    resources :expenses, :shallow => true
+    resources :savings, :shallow => true
   end
 
   resources :expenses
