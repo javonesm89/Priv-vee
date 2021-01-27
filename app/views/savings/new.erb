@@ -3,9 +3,9 @@ ADD A SAVING STRATEGY
 <%= form_for(@saving) do |f| %>
     <%= f.hidden_field :user_id %>
     INCOME: <%= f.collection_select :income_id, @incomes, :id, :source, {:include_blank => true} %><p>
-    STRATEGY: <%= f.text_field :source %><p>
-    AMOUNT: <%= f.number_field :amount %>
+    STRATEGY: <%= f.text_field :source, :placeholder => '401K' %><p>
+    AMOUNT: <%= f.number_field :amount, :placeholder => '500' %>
     <p>OR
-    PERCENT: <%= f.number_field :off_percent %>
+    PERCENT: <%= f.number_field :off_percent, :default => '6' %>
     <%= f.submit "SUBMIT" %>
 <% end %>
