@@ -3,6 +3,7 @@ class CreateExpenses < ActiveRecord::Migration[6.0]
     create_table :expenses do |t|
       t.string :source
       t.string :amount
+      t.references :income, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
