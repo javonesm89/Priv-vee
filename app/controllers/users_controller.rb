@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
     def show
-        if params[:id] && @user = User.find_by(:id => session[:user_id])
-            @user
+        if params[:id] && @user = User.find_by(:id => params[:id])
+            if @user 
+                @user 
+            end
         else
             flash[:alert] = 'MUST BE A MEMBER!'
             redirect_to root_path
