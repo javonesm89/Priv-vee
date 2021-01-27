@@ -12,6 +12,7 @@ class ExpensesController < ApplicationController
             if @expense.save
                 redirect_to user_path(@expense.user)
             else
+                @errors = @expense.errors.full_messages
                 render :new
             end
         end
