@@ -6,7 +6,9 @@ class IncomesController < ApplicationController
     end
 
     def create
+        binding.pry
         if session[:user_id] && User.find_by(:id => session[:user_id])
+            binding.pry
             @income = Income.new(income_params)
             binding.pry
             if @income.save
