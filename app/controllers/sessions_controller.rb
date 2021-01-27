@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
     def create
         if params[:email] && @user = User.find_by_email(params[:email])
             if @user.authenticate(params[:password])
+                session[:user_id] = @user.id
                 redirect_to user_path(@user)
             else
-                binding.pry
                 flash[:alert] = 'UNABLE TO LOGIN. TRY AGAIN.'
                 redirect_to login_path
             end
