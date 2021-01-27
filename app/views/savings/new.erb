@@ -1,5 +1,6 @@
 ADD A SAVING STRATEGY
 <p>
+
 <%= form_for(@saving) do |f| %>
     <%= f.hidden_field :user_id %>
     INCOME: <%= f.collection_select :income_id, @incomes, :id, :source, {:include_blank => true} %><p>
@@ -9,4 +10,5 @@ ADD A SAVING STRATEGY
     PERCENT: <%= f.number_field :off_percent %>
     <%= f.submit "SUBMIT" %>
 <% end %>
+
 <li>PRO TIP: for 401k, it's typical to invest what your employer matches (e.g, 6%). </li>

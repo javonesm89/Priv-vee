@@ -7,12 +7,19 @@ class SavingsController < ApplicationController
     end
 
     def create
-        binding.pry
+        if session[:user_id] && User.find_by(:id => session[:user_id])
+            @saving = Saving.new(savings_params)
+            if @income.save
+                redirect_to user_path(@saving.user)
+            else
+                render :new
+            end
+        end
     end
 
     private
 
-    def savings_param
+    def savings_params
         params.require(:saving).permit(:source,:amount,:off_percent,:income_id,:user_id)
     end
 end
