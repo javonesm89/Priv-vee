@@ -7,15 +7,7 @@ class ExpensesController < ApplicationController
     end
 
     def create
-        if session[:user_id] && User.find_by(:id => session[:user_id])
-            @expense = Expense.new(expenses_params)
-            if @expense.save
-                redirect_to user_path(@expense.user)
-            else
-                @errors = @expense.errors.full_messages
-                render :new
-            end
-        end
+        binding.pry
     end
 
     private
