@@ -11,15 +11,15 @@ class User < ApplicationRecord
     has_many :expenses
 
     def total_incomes
-        total_expenses = Income.where(:user_id => self.id).sum("amount")
+        total_expenses = Income.where(:user_id => self.id).sum("amount").to_i
     end
     
     def total_expenses
-        total_expenses = Expense.where(:user_id => self.id).sum("amount")
+        total_expenses = Expense.where(:user_id => self.id).sum("amount").to_i
     end
 
     def total_savings
-        total_expenses = Saving.where(:user_id => self.id).sum("amount")
+        total_expenses = Saving.where(:user_id => self.id).sum("amount").to_i
     end
 
     def adjust_for_taxes
