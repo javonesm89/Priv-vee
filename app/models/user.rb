@@ -9,4 +9,8 @@ class User < ApplicationRecord
     has_many :incomes
     has_many :savings
     has_many :expenses
+
+    def total_amount
+        total_amount = Expense.where(:user_id => self.id).sum("amount")
+    end
 end
