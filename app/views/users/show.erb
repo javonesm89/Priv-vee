@@ -34,6 +34,13 @@ MAKE LINK TO SOURCE AND SHOW BREAK DOWN OF SAVNGS, EXPENSES, INVESTMENTS
 
 <h4>EXPENSES: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR EXPENSES</h4>
 <p>
+<% if @user.expenses %>
+    <% @user.expenses.each do |e| %>
+        <li><%= e.source %></li>
+        <p>
+    <% end %>
+<% end %>
+<p>
 <%= link_to "ADD EXPENSE", new_user_expense_path(@user) %>
 <p>
 
