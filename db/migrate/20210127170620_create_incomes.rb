@@ -4,6 +4,7 @@ class CreateIncomes < ActiveRecord::Migration[6.0]
       t.string :source
       t.string :amount
       t.references :user, null: false, foreign_key: true
+      t.references :planner, null: false, foreign_key: true
 
       t.timestamps
     end

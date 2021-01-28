@@ -6,9 +6,11 @@ class User < ApplicationRecord
     
     has_secure_password
 
-    has_many :incomes
-    has_many :savings
-    has_many :expenses
+    has_many :planners
+    has_many :incomes, through: :planners
+    has_many :savings, through: :planners
+    has_many :expenses, through: :planners
+
 
     def total_incomes
         total_expenses = Income.where(:user_id => self.id).sum("amount").to_i

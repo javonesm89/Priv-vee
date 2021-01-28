@@ -1,6 +1,6 @@
 class Saving < ApplicationRecord
   belongs_to :user
-  belongs_to :income
+  belongs_to :planner
 
   validates :source, :presence => true
   validates :amount, :numericality => {:greater_than_or_equal_to => 0}
