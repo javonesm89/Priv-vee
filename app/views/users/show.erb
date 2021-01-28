@@ -32,7 +32,7 @@ MAKE LINK TO SOURCE AND SHOW BREAK DOWN OF SAVNGS, EXPENSES, INVESTMENTS
 <%= link_to "ADD SAVING", new_user_saving_path(@user) %>
 <p>
 
-<h4>EXPENSES: $<%= @user.total_amount%> </h4>
+<h4>EXPENSES: $<%= @user.total_expenses %> </h4>
 <p>
 <% if @user.expenses %>
     <% @user.expenses.each do |e| %>

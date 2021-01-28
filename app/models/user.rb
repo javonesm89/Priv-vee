@@ -10,7 +10,19 @@ class User < ApplicationRecord
     has_many :savings
     has_many :expenses
 
-    def total_amount
-        total_amount = Expense.where(:user_id => self.id).sum("amount")
+    def total_incomes
+        total_expenses = Income.where(:user_id => self.id).sum("amount")
     end
+    
+    def total_expenses
+        total_expenses = Expense.where(:user_id => self.id).sum("amount")
+    end
+
+    def total_savings
+        total_expenses = Saving.where(:user_id => self.id).sum("amount")
+    end
+
+    # def total_investments
+    #     total_expenses = Investment.where(:user_id => self.id).sum("amount")
+    # end
 end
