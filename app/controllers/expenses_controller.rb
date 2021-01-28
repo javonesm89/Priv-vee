@@ -13,7 +13,7 @@ class ExpensesController < ApplicationController
                 redirect_to user_path(@user)
             else
                 @incomes = @user.incomes
-                @
+                @errors = @expense.errors.full_messages
                 render :new
             end
         end
