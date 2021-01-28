@@ -3,7 +3,7 @@
 DASHBOARD:
 <p>
 
-<h4>INCOME: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR INCOME</h4>
+<h4>INCOME: $<%= @user.total_incomes %></h4>
 <p>
 <% if @user.incomes %>
     <% @user.incomes.each do |i| %>
@@ -20,7 +20,7 @@ MAKE LINK TO SOURCE AND SHOW BREAK DOWN OF SAVNGS, EXPENSES, INVESTMENTS
 
 <p>
 
-<h4>SAVINGS: | CREATE QUERY FOR MODEL TO DB TO SHOW TOTAL AMOUNT FOR SAVINGS</h4>
+<h4>SAVINGS: $<%= @user.total_savings %></h4>
 <p>
 <% if @user.savings %>
     <% @user.savings.each do |s| %>
