@@ -7,12 +7,21 @@ class ExpensesController < ApplicationController
     end
 
     def create
-        binding.pry
+        if session[:user_id] && @user = User.find_by(:id => session[:user_id])
+            @expense = Expense.new(expense_params)
+            if @expense.save
+                redirect_to user_path(@user)
+            else
+                @incomes = @user.incomes
+                @
+                render :new
+            end
+        end
     end
 
     private
 
-    def expenses_params
+    def expense_params
         params.require(:expense).permit(:source,:amount,:income_id,:user_id)
     end
 end
