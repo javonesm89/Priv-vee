@@ -3,6 +3,8 @@
 DASHBOARD:
 <p>
 
+<%= link_to "NEW PLANNER", new_user_planner_path(@user) %>
+
 <h4>INCOME: $<%= @user.total_incomes %></h4>
 <p>
 <% if @user.incomes %>
