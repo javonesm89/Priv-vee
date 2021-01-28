@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
             if @user.authenticate(params[:password])
                 redirect_to user_path(@user)
             else
-                binding.pry
                 flash[:alert] = "UNABLE TO LOGIN. TRY AGAIN."
                 redirect_to login_path
             end
