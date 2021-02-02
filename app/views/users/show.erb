@@ -5,7 +5,7 @@
 DASHBOARD:<p>
 <% if @user.planners %>
     <% @user.planners.each do |p| %>
-        <%= p.month %>
+        <%= p.month.strftime("%B") %><p>
     <% end %>
 <% end %>
 <p>
