@@ -1,6 +1,7 @@
 class PlannersController < ApplicationController
     
     def show
+        @planner = Planner.find_by(:id => params[:id])
     end
     
     
