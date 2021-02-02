@@ -2,9 +2,15 @@
 
 <h4> GOAL: <%= @planner.financial_goal %> </h4>
 
-<h3> INCOMES: <%= @planner.total_incomes %> </h3>
-    <% @planner.incomes.each do |i| %>
-         <%= i.source %> - <%= i.amount %>
-    <% end %>
+<p>
+
+<h3> INCOME: <%= @planner.total_incomes %> </h3>
 
 <%= link_to "ADD INCOME", new_user_planner_income_path(@planner.user_id,@planner)%>
+
+<p>
+
+    <% @planner.incomes.each do |i| %>
+         <%= i.source %> - <%= i.amount %><p>
+    <% end %>
+
