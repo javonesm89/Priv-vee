@@ -14,9 +14,8 @@ class Planner < ApplicationRecord
   end
 
   def saving_attributes=(attributes)
-    binding.pry
-    # saving = self.savings.build(attributes)
-    # saving.user_id = self.user_id
+    saving = self.savings.build(attributes)
+    saving.user_id = self.user_id
   end
 
   def total_incomes

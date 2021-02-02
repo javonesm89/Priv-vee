@@ -27,7 +27,6 @@ class PlannersController < ApplicationController
     end
 
     def update
-        raise planner_params.inspect
         @planner = Planner.find_by(:id => params[:id])
         @planner.update(planner_params)
         if @planner.save
