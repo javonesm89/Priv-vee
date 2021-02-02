@@ -15,8 +15,8 @@ ADD A SAVING STRATEGY
 
 <%= form_for @planner do |f| %>
     <%= f.fields_for :saving_attributes do |i| %> 
-        SOURCE: <%= i.text_field :source %>
-        AMOUNT: <%= i.number_field :amount %>
+        SOURCE: <%= i.text_field :source, :placeholder => "401K" %>
+        AMOUNT: <%= i.number_field :amount, :placeholder => "650" %>
     <% end %>
     <%= f.submit "Submit" %>   
 <% end %>
