@@ -14,23 +14,6 @@ DASHBOARD:<p>
 <p>
 MAKE LINK TO SOURCE AND SHOW BREAK DOWN OF SAVNGS, EXPENSES, INVESTMENTS
 <p>
-
-<h4>EXPENSES: $<%= @user.total_expenses %> </h4>
-<p>
-<% if @user.expenses %>
-    <% @user.expenses.each do |e| %>
-        <li><%= e.source %></li>
-        <p>
-    <% end %>
-<% end %>
-<p>
-<%= link_to "ADD EXPENSE", new_user_expense_path(@user) %>
-<p>
-
-INVESTMENTS 
-
-<p>
-
-<h4>REMAINING INCOME: $<%= @user.total_incomes - (@user.total_expenses + @user.total_savings) %></h4>
+LINK FOR INVESTMENTS 
 <p>
 <%= link_to "Log Out", logout_path %>
