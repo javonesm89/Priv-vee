@@ -2,7 +2,12 @@
 
 <h3> Hey, <%= @user.name %>! </h3>
 
-DASHBOARD:
+DASHBOARD:<p>
+<% if @user.planners %>
+    <% @user.planners.each do |p| %>
+        <%= p.month %>
+    <% end %>
+<% end %>
 <p>
 
 <%= link_to "NEW PLANNER", new_user_planner_path(@user) %>
