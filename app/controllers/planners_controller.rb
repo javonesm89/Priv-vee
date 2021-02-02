@@ -22,7 +22,7 @@ class PlannersController < ApplicationController
     def create
         @planner = Planner.new(planner_params)
         if @planner.save
-            redirect_to user_planner_path(@planner,user.id)
+            redirect_to user_planner_path(@planner,@planner.user.id)
         else
             @errors = @planner.errors.full_messages
             render :new
