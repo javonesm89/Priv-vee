@@ -1,9 +1,5 @@
 class PlannersController < ApplicationController
     
-    def show
-        @planner = Planner.find_by(:id => params[:id])
-    end
-    
     def new
         if session[:user_id] && @user = User.find_by(:id => params[:user_id])
             @planner = Planner.new(:user_id => @user.id)
