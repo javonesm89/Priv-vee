@@ -5,5 +5,6 @@ CREATE NEW PLANNER
     <%= fields_for :income_attributes do |inc| %>
         INCOME: <%= inc.text_field :source %>
     <% end %>
+    <p>
     <%= f.submit "SUBMIT BUDGET PLANNER" %>
 <% end %> 
