@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :planners, :only => [:show,:new,:create] do 
-      resources :incomes
+      resources :incomes, :shallow => true
+      resources :savings, :shallow => true
     end
     resources :incomes, :shallow => true
     resources :expenses, :shallow => true
