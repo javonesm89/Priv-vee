@@ -27,6 +27,7 @@ class PlannersController < ApplicationController
     end
 
     def update
+        binding.pry
         @planner = Planner.find_by(:id => params[:id])
     end
 

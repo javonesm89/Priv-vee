@@ -4,6 +4,7 @@ ADD AN INCOME. DON'T FORGET TO ADD A SOURCE AS WELL.
 <%= form_for @planner do |f| %>
     <%= f.fields_for @income do |i| %> 
         SOURCE: <%= i.text_field :source %>
+        AMOUNT: <%= i.number_field :amount %>
     <% end %>
     <%= f.submit "Submit" %>   
 <% end %>
