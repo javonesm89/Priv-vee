@@ -29,7 +29,6 @@ class PlannersController < ApplicationController
         @planner = Planner.find_by(:id => params[:id])
         @planner.update(planner_params)
         if @planner.save
-            binding.pry
         end
     end
 
