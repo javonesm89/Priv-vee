@@ -19,7 +19,7 @@
     <% @planner.savings.each do |s| %>
          <%= s.source %> - <%= s.amount %><p>
     <% end %>
-<h4>TOTAL SAVED: $<%= @planner.total_savings %>
+<h4>TOTAL SAVED: $<%= @planner.total_savings %> </h4>
 
 
 
@@ -33,5 +33,7 @@
 <% end %>
 <h4>TOTAL EXPENSES: $<%= @planner.total_expenses %> </h4>
 <p>
+
+REMAINING BUDGET: <% @planner.total_incomes - (@planner.total_savings + @planner.total_expenses) %>
 
 <%= link_to "BACK TO DASHBOARD", user_path(@planner.user_id)%>

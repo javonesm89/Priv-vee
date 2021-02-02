@@ -17,7 +17,9 @@ CREATE NEW PLANNER
     <%= f.hidden_field :user_id %>
     MONTH: <%= f.text_field :month %>
     <p>
-    GOAL: <%= f.text_field :financial_goal %>
+    GOAL: <%= f.text_field :goal %>
+    <p>
+    AMOUNT: <%= f.number_field :amount %>
     <p>
     <%= f.submit "SUBMIT BUDGET PLANNER" %>
 <% end %> 
