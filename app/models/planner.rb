@@ -9,6 +9,6 @@ class Planner < ApplicationRecord
   validates :financial_goal, :presence => true
 
   def incomes_attributes=(attributes)
-      self.incomes << Income.create(attributes)
+      self.incomes.build
   end
 end

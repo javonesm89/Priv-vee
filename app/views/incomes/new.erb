@@ -2,7 +2,6 @@ ADD AN INCOME. DON'T FORGET TO ADD A SOURCE AS WELL.
 <p>
 <%= form_for(@planner) do |f| %>
     <%= f.fields_for :incomes_attributes do |i| %>
-    <%= i.hidden_field :user_id %>
         SOURCE: <%= i.text_field :source %>
         AMOUNT: <%= i.number_field :amount %>
     <% end %>
