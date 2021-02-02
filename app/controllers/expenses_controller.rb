@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
     def new
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+        if session[:user_id] && @planner = Planner.find_by(:id => params[:planner_id])
             @expense = @user.expenses.build
             @incomes = @user.incomes
         end
