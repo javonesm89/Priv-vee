@@ -8,7 +8,8 @@ class Planner < ApplicationRecord
   validates :month, :presence => true
   validates :financial_goal, :presence => true
 
-  def incomes_attributes=(incomes_attributes)
-    binding.pry
+  def incomes_attributes=(attributes)
+    self.incomes.build(attributes) if !attributes[:amount].emty?
+    binding.pry 
   end
 end
