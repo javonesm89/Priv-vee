@@ -2,7 +2,7 @@
 
 <h4> GOAL: <%= @planner.financial_goal %> </h4>
 
-<h3> INCOMES: </h3>
+<h3> INCOMES: <%= @planner.total_incomes %> </h3>
     <% @planner.incomes.each do |i| %>
         <li> <%= i.source %> </li>
     <% end %>
