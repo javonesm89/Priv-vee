@@ -5,5 +5,5 @@ class Planner < ApplicationRecord
   has_many :savings
   has_many :expenses
 
-  accepts_nested_attributes_for :income
+  accepts_nested_attributes_for :incomes
 end
