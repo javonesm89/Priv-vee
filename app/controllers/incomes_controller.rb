@@ -10,7 +10,7 @@ class IncomesController < ApplicationController
         if session[:user_id] && Planner.find_by(:id => params[:planner_id])
             @income = Income.new(income_params)
             if @income.save
-                redirect_to user_planner_path(@income.planner.user_id,@income.planner)
+                redirect_to planner_path(@income.planner)
             else
                 render :new
             end
