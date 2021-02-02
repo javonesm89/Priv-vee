@@ -8,6 +8,10 @@ class PlannersController < ApplicationController
         end
     end
 
+    def create
+        binding.pry
+    end
+
     private
 
     def planner_params
