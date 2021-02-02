@@ -3,7 +3,6 @@ class CreatePlanners < ActiveRecord::Migration[6.0]
     create_table :planners do |t|
       t.string :month
       t.text :financial_goal
-      t.boolean :goal_accomplished => false
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
