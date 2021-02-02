@@ -18,7 +18,7 @@ class Planner < ApplicationRecord
     saving.user_id = self.user_id
   end
 
-  def saving_attributes=(attributes)
+  def expense_attributes=(attributes)
     expense = self.expenses.build(attributes)
     expense.user_id = self.user_id
   end
