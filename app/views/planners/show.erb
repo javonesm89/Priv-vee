@@ -24,8 +24,7 @@
 <p>
     <% if @planner.expenses %>
         <% @planner.expenses.each do |e| %>
-        <%= e.source %> = <%= e.amount %>
-        <p>
+            <%= e.source %> = <%= e.amount %><p>
     <% end %>
 <% end %>
 <p>
