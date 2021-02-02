@@ -9,6 +9,7 @@ class PlannersController < ApplicationController
     end
 
     def create
+        binding.pry
         @planner = Planner.new(planner_params)
         if @planner.save
             redirect_to user_planner_path(@planner.user)
@@ -19,6 +20,6 @@ class PlannersController < ApplicationController
     private
 
     def planner_params
-        params.require(:planner).permit(:month,:user_id,:income_attributes => [:source,:amount])
+        params.require(:planner).permit(:month,:user_id,:incomes_attributes => [:source,:amount])
     end
 end
