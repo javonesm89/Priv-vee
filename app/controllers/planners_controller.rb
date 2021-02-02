@@ -1,6 +1,7 @@
 class PlannersController < ApplicationController
     def new
-        if session[:user_id] && @user = User.find_by(:id => params[:id])
+        # binding.pry
+        if session[:user_id] && @user = User.find_by(:id => params[:user_id])
             @planner = @user.planners.build
         else
             flash[:error] = 'NOPE!'
