@@ -9,7 +9,11 @@ class PlannersController < ApplicationController
     end
 
     def create
-        raise planner_params.inspect
+        @planner = Planner.new(planner_params)
+        if @planner.save
+            redirect_to user_planner_path(@planner.user)
+        end
+
     end
 
     private
