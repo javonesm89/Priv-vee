@@ -9,7 +9,7 @@ class PlannersController < ApplicationController
     end
 
     def create
-        binding.pry
+        raise planner_params.inspect
     end
 
     private
