@@ -7,4 +7,8 @@ class Planner < ApplicationRecord
 
   validates :month, :presence => true
   validates :financial_goal, :presence => true
+
+  def incomes_attributes=(incomes_attributes)
+    binding.pry
+  end
 end
