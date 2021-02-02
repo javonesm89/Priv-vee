@@ -1,16 +1,16 @@
 class IncomesController < ApplicationController    
     
     def new
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @income = @user.incomes.build
+        if session[:user_id] && @planner = Planner.find_by_id(params[:planner_id])
+            @income = @planner.incomes.build
         end
     end
 
     def create
-        if session[:user_id] && User.find_by(:id => session[:user_id])
+        if session[:user_id] && Planner.find_by(:id => params[:planner_id])
             @income = Income.new(income_params)
             if @income.save
-                redirect_to user_path(@income.user)
+                redirect_to user_planner_path(@income.planner.user_id,@income.planner)
             else
                 render :new
             end
