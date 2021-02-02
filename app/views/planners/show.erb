@@ -3,9 +3,8 @@
 <h4> GOAL: <%= @planner.financial_goal %> </h4>
 
 <h3> INCOMES: </h3>
-    <%= link_to "ADD INCOME", new_user_planner_income_path(@planner.user_id,@planner)%>
-    <% if @planner.incomes %>
-        <% @planner.incomes do |i| %> 
-            <li> <%= i.source %> </li>
-        <% end %>
+    <% @planner.incomes.each do |i| %>
+        <li> <%= i.source %> </li>
     <% end %>
+
+<%= link_to "ADD INCOME", new_user_planner_income_path(@planner.user_id,@planner)%>
