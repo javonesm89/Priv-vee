@@ -11,9 +11,22 @@
          <%= i.source %> - <%= i.amount %><p>
     <% end %>
 
+
 <h3> SAVINGS: <%= @planner.total_savings %> </h3>
 <%= link_to "ADD SAVINGS", new_user_planner_saving_path(@planner.user_id,@planner) %>
 <p>
     <% @planner.savings.each do |s| %>
          <%= s.source %> - <%= s.amount %><p>
     <% end %>
+
+<h3>EXPENSES: $<%= @planner.total_expenses %> </h3>
+<p>
+<% if @user.expenses %>
+    <% @user.expenses.each do |e| %>
+        <li><%= e.source %></li>
+        <p>
+    <% end %>
+<% end %>
+<p>
+<%= link_to "ADD EXPENSE", new_user_expense_path(@user) %>
+<p>
