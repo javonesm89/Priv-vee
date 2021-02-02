@@ -5,7 +5,7 @@
 DASHBOARD:<p>
 <% if @user.planners %>
     <% @user.planners.each do |p| %>
-        <li><%= p.month %><p></li>
+        <li><%= link_to p.month, user_planner_path(p) %><p></li>
     <% end %>
 <% end %>
 <p>
