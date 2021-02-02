@@ -2,5 +2,8 @@ CREATE NEW PLANNER
 <p>
 <%= form_for(@planner) do |f| %>
     MONTH: <%= f.month_field :month %><p>
-    <%= f.submit "SUBMIT PLANNER" %>
+    <%= fields_for :income_attributes do |inc| %>
+        INCOME: <%= inc.text_field :source %>
+    <% end %>
+    <%= f.submit "SUBMIT BUDGET PLANNER" %>
 <% end %> 
