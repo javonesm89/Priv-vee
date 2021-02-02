@@ -18,6 +18,12 @@ class Planner < ApplicationRecord
     saving.user_id = self.user_id
   end
 
+  def saving_attributes=(attributes)
+    expense = self.expenses.build(attributes)
+    expense.user_id = self.user_id
+  end
+  
+
   def total_incomes
     Income.where(:user_id => self.id).sum("amount")
   end
