@@ -8,7 +8,5 @@ class Planner < ApplicationRecord
   validates :month, :presence => true
   validates :financial_goal, :presence => true
 
-  def incomes_attributes=(attributes)
-      self.incomes.build
-  end
+  accepts_nested_attributes_for :incomes
 end
