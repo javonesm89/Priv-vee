@@ -3,6 +3,10 @@ CREATE NEW PLANNER
 <%= form_for(@planner) do |f| %>
     <%= f.hidden_field :user_id %>
     MONTH: <%= f.month_field :month %>
+    <%= fields_form :incomes do |i| %>
+        SOURCE: <%= i.text_field :source %>
+        AMOUNT: <%= i.number_field :amount %>
+    <% end %>
     <p>
     <%= f.submit "SUBMIT BUDGET PLANNER" %>
 <% end %> 
