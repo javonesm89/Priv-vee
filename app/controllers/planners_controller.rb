@@ -2,7 +2,7 @@ class PlannersController < ApplicationController
     def new
         if session[:user_id] && @user = User.find_by(:id => params[:user_id])
             @planner = @user.planners.build
-            @incomes = @planner.incomes.build
+            @income = @planner.incomes.build
         else
             flash[:error] = 'NOPE!'
             redirect_to root_path
