@@ -12,3 +12,4 @@
     <% end %>
 
 <h3> SAVINGS: <%= @planner.total_savings %> </h3>
+<%= link_to "ADD INCOME", new_user_planner_saving_path(@planner.user_id,@planner) %>
