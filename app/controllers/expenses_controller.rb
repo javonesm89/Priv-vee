@@ -1,8 +1,7 @@
 class ExpensesController < ApplicationController
     def new
         if session[:user_id] && @planner = Planner.find_by(:id => params[:planner_id])
-            @expense = @user.expenses.build
-            @incomes = @user.incomes
+            @expense = @planner.expenses.build
         end
     end
 
