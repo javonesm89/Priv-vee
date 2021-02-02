@@ -7,4 +7,10 @@ class PlannersController < ApplicationController
             redirect_to root_path
         end
     end
+
+    private
+
+    def planner_params
+        params.require(:planner).permit()
+    end
 end
