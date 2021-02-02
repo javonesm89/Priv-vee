@@ -20,7 +20,7 @@ class IncomesController < ApplicationController
     private
 
     def income_params
-        params.require(:income).permit(:source,:amount,:user_id,:planner_attributes)
+        params.require(:income).permit(:source,:amount,:user_id)
     end
 
 end
