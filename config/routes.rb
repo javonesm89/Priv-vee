@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     resources :savings, :shallow => true
   end
   
-  resources :planners
+  resources :planners do
+    resources :incomes, :shallow => true
+  end
+
   resources :expenses
   resources :savings
   resources :incomes
