@@ -39,6 +39,11 @@ class PlannersController < ApplicationController
     private
 
     def planner_params
-        params.require(:planner).permit(:month,:user_id,:financial_goal,:income_attributes => [:source,:amount,:user_id])
+        params.require(:planner).permit(:month,
+        :user_id,
+        :financial_goal,
+        :income_attributes => [:source,:amount,:user_id],
+        :saving_attributes => [:source,:amount,:user_id],
+        :expense_attributes => [:source,:amount,:user_id])
     end
 end

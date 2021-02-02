@@ -1,8 +1,7 @@
 class SavingsController < ApplicationController
     def new
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @saving = @user.savings.build
-            @incomes = @user.incomes
+        if session[:user_id] && @planner = Planner.find_by_id(params[:planner_id])
+            @saving = @planner.savings.build
         end
     end
 
