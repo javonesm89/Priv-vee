@@ -1,5 +1,6 @@
 CREATE NEW PLANNER
 
 <%= form_for(@planner) do |f| %>
-    MONTH: <%= f.text_field :month %>
+    MONTH: <%= f.month_field :month %>
+    <%= f.submit "SUBMIT PLANNER" %>
 <% end %> 
