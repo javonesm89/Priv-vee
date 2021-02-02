@@ -4,6 +4,7 @@ class PlannersController < ApplicationController
             @planner = @user.planners.build
         else
             flash[:error] = 'NOPE!'
+            redirect_to root_path
         end
     end
 end
