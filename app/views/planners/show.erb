@@ -4,6 +4,8 @@
 
 <h3> INCOMES: </h3>
     <%= link_to "ADD INCOME", new_user_planner_income_path(@planner.user_id,@planner)%>
-    <% if @planner.incomes %> 
-
+    <% if @planner.incomes %>
+        <% @planner.incomes do |i| %> 
+            <li> <%= i.source %> </li>
+        <% end %>
     <% end %>
