@@ -29,6 +29,11 @@ class PlannersController < ApplicationController
     def update
         @planner = Planner.find_by(:id => params[:id])
         @planner.update(planner_params)
+        if @planner.save
+            redirect_to user_planner_path(@planner.user_id)
+        else
+            render :edit
+        end
     end
 
     private
