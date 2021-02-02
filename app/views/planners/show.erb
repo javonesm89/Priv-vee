@@ -20,13 +20,13 @@
     <% end %>
 
 <h3>EXPENSES: $<%= @planner.total_expenses %> </h3>
+<%= link_to "ADD EXPENSE", new_user_planner_expense_path(@planner.user_id.@planner) %>
 <p>
-<% if @user.expenses %>
-    <% @user.expenses.each do |e| %>
-        <li><%= e.source %></li>
+    <% if @planner.expenses %>
+        <% @planner.expenses.each do |e| %>
+        <%= e.source %> = <%= e.amount %>
         <p>
     <% end %>
 <% end %>
 <p>
-<%= link_to "ADD EXPENSE", new_user_expense_path(@user) %>
 <p>
