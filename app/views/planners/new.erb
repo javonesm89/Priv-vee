@@ -2,7 +2,7 @@ CREATE NEW PLANNER
 <p>
 <%= form_for(@planner) do |f| %>
     MONTH: <%= f.month_field :month %><p>
-    <%= fields_for @incomes do |inc| %>
+    <%= fields_for @income do |inc| %>
     INCOME<p>
         SOURCE <%= inc.text_field :source %> |
         AMOUNT <%= inc.text_field :amount %>
