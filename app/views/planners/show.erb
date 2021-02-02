@@ -3,7 +3,7 @@
 <h4> GOAL: <%= @planner.financial_goal %> </h4>
 
 <h3> INCOMES: </h3>
-    <%= link_to "ADD INCOME", new_planner_income_path(@planner)%>
+    <%= link_to "ADD INCOME", new_user_planner_income_path(@planner.user_id,@planner)%>
     <% if @planner.incomes %> 
 
     <% end %>
