@@ -9,6 +9,7 @@ class Planner < ApplicationRecord
   validates :financial_goal, :presence => true
 
   def income_attributes=(attributes)
-    binding.pry
+    income = self.incomes.build(attributes)
+    income.user_id = self.user_id
   end
 end
