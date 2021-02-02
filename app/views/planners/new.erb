@@ -15,7 +15,7 @@ CREATE NEW PLANNER
 <p>
 <%= form_for(@planner) do |f| %>
     <%= f.hidden_field :user_id %>
-    MONTH: <%= f.date_select :month %>
+    MONTH: <%= f.date_select :month, :add_month_numbers => true, :discard_day => true,  %>
     <p>
     GOAL: <%= f.text_area :financial_goal %>
     <p>

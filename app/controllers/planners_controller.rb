@@ -10,9 +10,10 @@ class PlannersController < ApplicationController
     end
 
     def create
+        binding.pry
         @planner = Planner.new(planner_params)
         if @planner.save
-            redirect_to user_planner_path(@planner,@planner.user.id)
+            redirect_to user_path(@planner.user_id)
         else
             @errors = @planner.errors.full_messages
             render :new
