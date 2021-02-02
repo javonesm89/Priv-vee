@@ -4,4 +4,7 @@ class Planner < ApplicationRecord
   has_many :incomes
   has_many :savings
   has_many :expenses
+
+  validates :month, :presence => true
+  validates :financial_goal, :presence => true
 end
