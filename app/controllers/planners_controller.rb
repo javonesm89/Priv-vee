@@ -10,7 +10,6 @@ class PlannersController < ApplicationController
     end
 
     def create
-        binding.pry
         @planner = Planner.new(planner_params)
         if @planner.save
             redirect_to user_path(@planner.user_id)
