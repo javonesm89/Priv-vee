@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     def show
+        binding.pry
         if params[:id] && @user = User.find_by(:id => session[:user_id])
                 @user 
         else
