@@ -5,7 +5,5 @@ class Planner < ApplicationRecord
   has_many :savings
   has_many :expenses
 
-  def income_attributes=(income_attributes)
-    binding.pry
-  end
+  accepts_nested_attributes_for :incomes
 end
