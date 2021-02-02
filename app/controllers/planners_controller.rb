@@ -1,13 +1,7 @@
 class PlannersController < ApplicationController
     
     def show
-        binding.pry
-        if session[:user_id] && @user = User.find_by(:id => params[:user_id])
-            @planner = Planner.new(:user_id => @user.id)
-        else
-            flash[:error] = 'NOPE!'
-            redirect_to root_path
-        end
+        @planner = Planner.find_by(:id => params[:id])
     end
     
     def new
