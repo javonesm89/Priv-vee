@@ -1,7 +1,9 @@
 class PlannersController < ApplicationController
     
     def show
-        @planner = Planner.find_by(:id => params[:id])
+        if session[:user_id] && @user = User.find_by(:id => params[:user_id])
+            @planner = Planner.find_by(:id => params[:user_id])
+        end
     end
     
     
@@ -15,7 +17,6 @@ class PlannersController < ApplicationController
     end
 
     def create
-        raise planner_params.inspect
         @planner = Planner.new(planner_params)
         if @planner.save
             redirect_to user_path(@planner.user_id)
