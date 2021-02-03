@@ -6,7 +6,8 @@ class Planner < ApplicationRecord
   has_many :expenses
 
   validates :month, :presence => true
-  validates :financial_goal, :presence => true
+  validates :goal, :presence => true
+  validates :amount, :presence => true 
 
   def income_attributes=(attributes)
     income = self.incomes.build(attributes)

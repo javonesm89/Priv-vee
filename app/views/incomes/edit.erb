@@ -1,0 +1,6 @@
+EDIT: <p>
+<%= form_for(@income) do |f| %>
+    SOURCE: <%= f.text_field :source %>
+    AMOUNT: <%= f.number_field :amount %>
+    <%= f.submit "Edit income" %>
+<% end %>

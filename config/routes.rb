@@ -5,11 +5,24 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   
+  
+  resources :users do
+    resources :planners do
+      resources :incomes
+      resources :savings
+      resources :expenses
+    end
+  end
+  
+  
+  
+  
+  
+  
   resources :users do
     resources :planners, :only => [:show,:new,:create] do 
-      resources :incomes, :shallow => true
-      resources :savings, :shallow => true
-      resources :expenses, :shallow => true
+      resources :incomes
+      resources :savings
     end
     resources :incomes, :shallow => true
     resources :expenses, :shallow => true

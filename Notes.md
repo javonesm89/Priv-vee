@@ -8,7 +8,7 @@ X Your models must include reasonable validations for the simple attributes. You
 
 X You must include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
 
-_ Your application must provide standard user authentication, including signup, login, logout, and passwords.
+X Your application must provide standard user authentication, including signup, login, logout, and passwords.
 
 _ Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 
@@ -16,13 +16,13 @@ X You must include and make use of a nested resource with the appropriate RESTfu
 
 X You must include a nested new route with form that relates to the parent resource
 
-_ You must include a nested index or show route
+X You must include a nested index or show route
 
-_ Your forms should correctly display validation errors.
+X Your forms should correctly display validation errors.
 
-_ Your fields should be enclosed within a fields_with_errors class
+X Your fields should be enclosed within a fields_with_errors class
 
-_ Error messages describing the validation failures must be present within the view.
+X Error messages describing the validation failures must be present within the view.
 
 _ Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
 

@@ -1,13 +1,14 @@
 <h2> <%= @planner.month %> </h3>
 <p>
 
-<h5> GOAL: <%= @planner.financial_goal %> </h5>
+<h5> GOAL: <%= @planner.goal %> </h5>
+<h5> TARGET: $<%= @planner.amount %> </h5>
 <p>
 
 <p>
 <%= link_to "ADD INCOME", new_user_planner_income_path(@planner.user_id,@planner)%><p>
     <% @planner.incomes.each do |i| %>
-         <%= i.source %> - <%= i.amount %><p>
+         <h5><%= i.source %> - $<%= i.amount %> | <%=link_to "Edit", edit_user_planner_income_path(@planner.user_id,@planner.id,i) %> </h5><p>
     <% end %>
 <h4> TOTAL INCOME: $<%= @planner.total_incomes %> </h3>
 
@@ -17,7 +18,7 @@
 <p>
 <%= link_to "ADD SAVINGS", new_user_planner_saving_path(@planner.user_id,@planner) %><p>
     <% @planner.savings.each do |s| %>
-         <%= s.source %> - <%= s.amount %><p>
+         <h5><%= s.source %> - $<%= s.amount %> | <%=link_to "Edit", edit_user_planner_saving_path(@planner.user_id,@planner.id,s) %><p></h5>
     <% end %>
 <h4>TOTAL SAVED: $<%= @planner.total_savings %> </h4>
 
@@ -28,12 +29,12 @@
 <p>
     <% if @planner.expenses %>
         <% @planner.expenses.each do |e| %>
-            <%= e.source %> - <%= e.amount %><p>
+            <h5><%= e.source %> - $<%= e.amount %> | <%=link_to "Edit", edit_user_planner_expense_path(@planner.user_id,@planner.id,e) %><p></h5>
     <% end %>
 <% end %>
 <h4>TOTAL EXPENSES: $<%= @planner.total_expenses %> </h4>
 <p>
 
-REMAINING BUDGET: <% @planner.total_incomes - (@planner.total_savings + @planner.total_expenses) %>
-
+<h4> REMAINING BUDGET: $<%= @planner.total_incomes - (@planner.total_savings + @planner.total_expenses) %> </h4>
+<p>
 <%= link_to "BACK TO DASHBOARD", user_path(@planner.user_id)%>

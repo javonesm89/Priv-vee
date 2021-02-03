@@ -17,6 +17,18 @@ class IncomesController < ApplicationController
         end
     end
 
+    def edit
+        @income = Income.find_by(:id => params[:id])
+    end
+
+    def update
+        @income = Income.find_by_id(params[:id])
+        @income.update(income_params)
+        if @income.save
+            redirect_to user_planner_path(@income.user_id,@income.planner)
+        end
+    end
+
     private
 
     def income_params
