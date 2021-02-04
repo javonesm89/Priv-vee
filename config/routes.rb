@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#home'
+
+  get '/invest' => 'welcome#invest'
+  get '/save' => 'welcome#save'
+  get '/spend' => 'welcome#spend'
   
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -13,10 +17,6 @@ Rails.application.routes.draw do
       resources :expenses
     end
   end
-  
-  
-  
-  
   
   
   resources :users do
