@@ -11,21 +11,29 @@ class PlannersController < ApplicationController
     
     
     def new
-        if session[:user_id] && @user = User.find_by(:id => params[:user_id])
-            @planner = Planner.new(:user_id => @user.id)
-        else
-            flash[:error] = 'NOPE!'
-            redirect_to root_path
+        if session[:user_id] && User.exists?(:id => session[:user_id])
+            @user = User.find_by(:id => session[:user_id])
+            if @user
+                @user
+                @planner = Planner.new()
+            else
+                flash[:alert] = "ONLY MEMBERS CAN CREATE BUDGETS."
+                redirect_to login_path
+            end
         end
+
     end
 
     def create
-        @planner = Planner.new(planner_params)
-        if @planner.save
-            redirect_to user_path(@planner.user_id)
-        else
-            @errors = @planner.errors.full_messages
-            render :new
+        if session[:user_id] && User.exists?(:id => session[:user_id])
+            @planner = Planner.new(planner_params)
+            if @planner.save
+                redirect_to user_path(@planner.user_id)
+            else
+                @errors = @planner.errors.full_messages
+                @user = User.find_by(:id => session[:user_id])
+                render :new
+            end
         end
     end
 
@@ -42,10 +50,11 @@ class PlannersController < ApplicationController
     private
 
     def planner_params
-        params.require(:planner).permit(:month,
-        :user_id,
-        :goal,
+        params.require(:planner).permit(
+        :month,
         :amount,
+        :goal,
+        :user_id,
         :income_attributes => [:source,:amount,:user_id],
         :saving_attributes => [:source,:amount,:user_id],
         :expense_attributes => [:source,:amount,:user_id])

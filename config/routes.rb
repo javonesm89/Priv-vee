@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   
   
-  resources :users do
+  resources :users do 
     resources :planners do
       resources :incomes
       resources :savings
@@ -18,23 +18,9 @@ Rails.application.routes.draw do
     end
   end
   
-  
-  resources :users do
-    resources :planners, :only => [:show,:new,:create] do 
-      resources :incomes
-      resources :savings
-    end
-    resources :incomes, :shallow => true
-    resources :expenses, :shallow => true
-    resources :savings, :shallow => true
-  end
-  
-  resources :planners do
-    resources :incomes, :shallow => true
-  end
-
+  resources :planners
+  resources :incomes
   resources :expenses
   resources :savings
-  resources :incomes
 
 end

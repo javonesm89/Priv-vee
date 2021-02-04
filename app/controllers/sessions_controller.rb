@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
     end
 
     def create
+        # binding.pry
         if params[:email] && @user = User.find_by(:email => params[:email])  
             if @user.authenticate(params[:password])
                 session[:user_id] = @user.id
