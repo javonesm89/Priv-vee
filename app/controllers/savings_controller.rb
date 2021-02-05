@@ -1,6 +1,16 @@
 class SavingsController < ApplicationController
+    
+    def index
+        if session[:user_id] && User.exists?(:id => session[:user_id])
+            @user = User.find_by(:id => session[:user_id])
+        else
+            flash[:alert]
+            redirect_to login_path
+        end
+    end
+    
     def new
-        if session[:user_id] && @planner = Planner.find_by_id(params[:planner_id])
+        if session[:user_id] && User.exists?(:id => session[:user_id])
             @saving = @planner.savings.build
         end
     end
