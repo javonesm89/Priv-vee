@@ -1,13 +1,17 @@
 <% if @errors %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@errors.count, "error") %> prohibited you from create this planner:</h2>
-    <ul>
+  <%= content_tag :div, '',  :id => "error_explanation" %>
+    <%= content_tag :h2 do %>
+      <%= pluralize(@errors.count, "error") %> prohibited you from creating this planner:
+    <% end %>
+    <%= content_tag :ul do %>
       <% @errors.each.uniq do |error| %>
-        <li><%= error %></li>
+        <%= content_tag :li do %>
+          <%= error %>
+        <% end %>
       <% end %>
-    </ul>
-  </div>
+    <% end %>
 <% end %>
+
 <% t = Time.now %>
 
 

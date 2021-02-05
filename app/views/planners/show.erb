@@ -1,40 +1,58 @@
-<h2> <%= @planner.month %> </h3>
-<p>
 
-<h5> GOAL: <%= @planner.goal %> </h5>
-<h5> TARGET: $<%= @planner.amount %> </h5>
-<p>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <%= link_to "Back to Dashboard", user_path(@planner.user_id), :class => "navbar-brand" %>
+     </div>
+    </nav>
 
-<p>
-<%= link_to "ADD INCOME", new_user_planner_income_path(@planner.user_id,@planner)%><p>
-    <% @planner.incomes.each do |i| %>
-         <h5><%= i.source %> - $<%= i.amount %> | <%=link_to "Edit", edit_user_planner_income_path(@planner.user_id,@planner.id,i) %> </h5><p>
-    <% end %>
-<h4> TOTAL INCOME: $<%= @planner.total_incomes %> </h3>
-
-
-
-
-<p>
-<%= link_to "ADD SAVINGS", new_user_planner_saving_path(@planner.user_id,@planner) %><p>
-    <% @planner.savings.each do |s| %>
-         <h5><%= s.source %> - $<%= s.amount %> | <%=link_to "Edit", edit_user_planner_saving_path(@planner.user_id,@planner.id,s) %><p></h5>
-    <% end %>
-<h4>TOTAL SAVED: $<%= @planner.total_savings %> </h4>
-
-
-
-
-<%= link_to "ADD EXPENSE", new_user_planner_expense_path(@planner.user_id,@planner) %>
-<p>
-    <% if @planner.expenses %>
+<%= content_tag :section, "", :class => "py-5 text-center container" do %>   
+        <%= content_tag :h1, @planner.month, :class => "fw-light" %>
+        <%= content_tag :p, "Goal: #{@planner.goal}" %>
+        <%= content_tag :p, "Target: $#{@planner.amount}" %>
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+        <%= content_tag :h5, '', :class => "card-title" do %>
+            <%= link_to "Add Income",new_user_planner_income_path(@planner,@planner.user_id), :class => "card-title" %>
+        <% end %>
+        <% @planner.incomes.each do |i| %>
+            <%= content_tag :p, "#{i.source} - $#{i.amount}", :class => "card-text" %> 
+        <% end %>
+    </div>
+        <%= content_tag :footer, '', :class => "card-footer" do %>
+            <%= content_tag :small, "Total: $#{@planner.total_incomes}", :class => "card-text" %>
+        <% end %>
+  </div>
+  <div class="card">
+    <div class="card-body">
+        <%= content_tag :h5, '', :class => "card-title" do %>
+            <%= link_to "Add Saving",new_user_planner_saving_path(@planner,@planner.user_id), :class => "card-title" %>
+        <% end %>
+        <% @planner.savings.each do |s| %>
+            <%= content_tag :p, "#{s.source} - $#{s.amount}", :class => "card-text" %> 
+        <% end %>
+    </div>
+        <%= content_tag :footer, '', :class => "card-footer" do %>
+            <%= content_tag :small, "Total: $#{@planner.total_savings}", :class => "card-text" %>
+        <% end %>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <%= content_tag :h5, '', :class => "card-title" do %>
+                <%= link_to "Add Expense",new_user_planner_expense_path(@planner,@planner.user_id), :class => "card-title" %>
+            <% end %>
         <% @planner.expenses.each do |e| %>
-            <h5><%= e.source %> - $<%= e.amount %> | <%=link_to "Edit", edit_user_planner_expense_path(@planner.user_id,@planner.id,e) %><p></h5>
-    <% end %>
-<% end %>
-<h4>TOTAL EXPENSES: $<%= @planner.total_expenses %> </h4>
+            <%= content_tag :p, "#{e.source} - $#{e.amount}", :class => "card-text" %> 
+        <% end %>
+    </div>
+        <%= content_tag :footer, '', :class => "card-footer" do %>
+            <%= content_tag :small, "Total: $#{@planner.total_expenses}", :class => "card-text" %>
+        <% end %>
+  </div>
+</div>
 <p>
+<%= content_tag :h4, "Remaining bugdet: $#{@planner.total_incomes - (@planner.total_savings + @planner.total_expenses)}" %>
 
-<h4> REMAINING BUDGET: $<%= @planner.total_incomes - (@planner.total_savings + @planner.total_expenses) %> </h4>
-<p>
-<%= link_to "BACK TO DASHBOARD", user_path(@planner.user_id)%>
+
+<% end %>
+
