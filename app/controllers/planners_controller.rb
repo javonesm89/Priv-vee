@@ -28,7 +28,7 @@ class PlannersController < ApplicationController
         if session[:user_id] && User.exists?(:id => session[:user_id])
             @planner = Planner.new(planner_params)
             if @planner.save
-                redirect_to user_path(@planner.user_id)
+                redirect_to user_planner_path(@planner.user_id,@planner)
             else
                 @errors = @planner.errors.full_messages
                 @user = User.find_by(:id => session[:user_id])
