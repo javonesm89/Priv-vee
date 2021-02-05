@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       resources :expenses
     end
   end
+
+  delete 'users/:id/planners/:id' => 'planners#destroy'
   
   resources :planners
   resources :incomes

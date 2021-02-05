@@ -91,6 +91,7 @@
               <th>Total Savings</th>
               <th>Total Expenses</th>
               <th>Remaining Total</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -101,6 +102,7 @@
                   <td> $<%= p.total_savings %> </td>
                   <td> $<%= p.total_expenses %> </td>
                   <td> $<%= p.total_incomes - (p.total_savings + p.total_expenses) %> </td>
+                  <td><%= button_to "delete", :action => 'destroy', :method => :post %></td>
                 </tr>
               <% end %>
 
