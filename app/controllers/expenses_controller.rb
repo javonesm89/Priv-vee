@@ -1,4 +1,11 @@
 class ExpensesController < ApplicationController
+    def index
+        if session[:user_id] && User.exists?(:id => session[:user_id])
+            @user = User.find_by_id(session[:user_id])
+        end
+    end
+    
+    
     def new
         if session[:user_id] && @planner = Planner.find_by(:id => params[:planner_id])
             @expense = @planner.expenses.build

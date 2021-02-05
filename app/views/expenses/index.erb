@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <%= link_to "Back to Dashboard", user_path(@user), :class => "navbar-brand" %>
+    </div>
+</nav>
+
+<%= content_tag :section, "", :class => "py-5 text-center container" do %>   
+    <%= content_tag :h1, "SAVINGS", :class => "fw-light" %>
+    <%= content_tag :div, '', :class => "card-group" do %>
+        <% @user.savings.each do |s| %>
+            <%= content_tag :div, '', :class => "card" do %>
+                <%= content_tag :div, '', :class => "card-body" do %>
+                <%= content_tag :h5, "#{s.source}", :class => "card-title" %>
+                <%= content_tag :h5, "#{s.amount}", :class => "card-title" %>
+                <%= content_tag :h5, "#{s.planner.month}", :class => "card-text" %>
+            <% end %>
+
+        <% end %>
+
+    <% end %>
+
+<% end %>
+
+<% end %>
