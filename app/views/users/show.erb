@@ -1,21 +1,16 @@
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
+<%= content_tag :div, '', :class => "container-fluid" do %>
+<%# START REST OF CODE HERE %>  
+  <%= content_tag :div, '', :class => "row" do %>
+    <%= content_tag :nav, '', :class => "col-md-2 sidebar" do %>
+      <%= content_tag :div, '', :class => "sidebar-sticky" do %>
+        <%= content_tag :ul, '', :class => "nav flex-column"%>
+      <% end %>
+    <% end %>
+  <% end %>  
 
-    <!-- Bootstrap core CSS -->
-  <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
-<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-<meta name="theme-color" content="#563d7c">
+<% end %>
   
-    <link href="dashboard.css" rel="stylesheet">
-  <style type="text/css">/* Chart.js */
-@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
-<body>
+  
   <div class="container-fluid">
     <div class="row">
       <nav class="col-md-2 sidebar">
@@ -113,5 +108,3 @@
     </main>
   </div>
 </div>
-</body>
-</html>
