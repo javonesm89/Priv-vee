@@ -7,12 +7,12 @@
 <%= content_tag :section, "", :class => "py-5 text-center container" do %>   
     <%= content_tag :h1, "SAVINGS", :class => "fw-light" %>
     <%= content_tag :div, '', :class => "card-group" do %>
-        <% @user.savings.each do |s| %>
+        <% @user.expenses.each do |e| %>
             <%= content_tag :div, '', :class => "card" do %>
                 <%= content_tag :div, '', :class => "card-body" do %>
-                <%= content_tag :h5, "#{s.source}", :class => "card-title" %>
-                <%= content_tag :h5, "#{s.amount}", :class => "card-title" %>
-                <%= content_tag :h5, "#{s.planner.month}", :class => "card-text" %>
+                <%= content_tag :h5, "#{e.source}", :class => "card-title" %>
+                <%= content_tag :h5, "#{e.amount}", :class => "card-title" %>
+                <%= content_tag :h5, "#{e.planner.month}", :class => "card-text" %>
             <% end %>
 
         <% end %>

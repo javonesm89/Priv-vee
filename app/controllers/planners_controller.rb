@@ -1,8 +1,9 @@
 class PlannersController < ApplicationController
     
     def show
-        if session[:user_id] && User.find_by(:id => session[:user_id])
+        if session[:user_id] && User.exists?(:id => session[:user_id])
             @planner = Planner.find_by(:id => params[:id])
+            binding.pry
         else
             flash[:alert] = 'MUST BE A MEMBER!'
             redirect_to login_path
