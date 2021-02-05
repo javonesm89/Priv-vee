@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   
   
   resources :users do
-    resources :savings 
+    resources :savings
+    resources :expenses 
     resources :planners do
       resources :incomes
       resources :savings
