@@ -1,12 +1,12 @@
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-secondary">
       <div class="container-fluid">
         <%= link_to "Back to Dashboard", user_path(@planner.user_id), :class => "navbar-brand" %>
      </div>
     </nav>
 
-<%= content_tag :section, "", :class => "py-5 text-center container" do %>   
-        <%= content_tag :h1, @planner.month, :class => "fw-light" %>
+<%= content_tag :section, "", :class => "py-5 text-center container" do %>
+        <%= content_tag :h1, @planner.month, :class => "fw-light" %> 
         <%= content_tag :p, "Goal: #{@planner.goal}" %>
         <%= content_tag :p, "Target: $#{@planner.amount}" %>
 <div class="card-group">
