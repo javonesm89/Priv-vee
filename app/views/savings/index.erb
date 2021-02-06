@@ -5,23 +5,11 @@
 </nav>
 
 
-<% binding.pry %>
+
 <%= content_tag :div, "", :class => "py-2 container" do %>   
-    <%= content_tag :h4, "Savings for #{@user.name.capitalize}", :class => "fw-light display-4" %>
-            <%= content_tag :h3, "YTD Total: $#{@user.savings.count}"%>
- 
-        <% @user.savings.each do |s| %>
-                <%= content_tag :div, '', :class => "card-body" do %>
-                <%= content_tag :h5, "#{s.source}", :class => "card-title" %>
-                <%= content_tag :h5, "#{s.amount}", :class => "card-title" %>
-                <%= content_tag :h5, "#{s.planner.month}", :class => "card-text" %>
-
-        <% end %>
-
-
-<% end %>
-
-
+    <%= content_tag :h4, "Savings for #{@user.name.capitalize}", :class => "fw-light display-4" %><br>
+    <%= content_tag :h3, "YTD Total: $#{@user.savings.sum("amount")}"%>
+    <%= content_tag :h4, "Sources", :class => "fw-light display-4" %> 
 <% end %>
 
 
