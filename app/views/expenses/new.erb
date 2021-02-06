@@ -19,5 +19,7 @@
                 <%= s.label :amount, "Amount", :class => "form-label" %>
                 <%= s.number_field :amount, :placeholder => "1350", :class => "form-control" %>
             <% end %>
-            <%= f.submit "Submit", :class => "btn btn-success position-absolute" %>
+            <%= content_tag :div, '', :class => "text-center" do %>
+          <%= f.submit "Submit", :class => "btn btn-success text-center" %>
+        <% end %>
         <% end %>
