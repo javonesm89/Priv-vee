@@ -26,8 +26,10 @@
       <%= f.text_field :goal, :class => "form-control", :placeholder => "Save for August Vacation" %>
       <%= f.label :amount, "Amount", :class => "form-label" %>
       <%= f.number_field :amount, :class => "form-control", :placeholder => "2000" %>
-      <%= f.submit "Create Budget", :class => "btn btn-success" %>
-    <% end %>
+       <%= content_tag :div, '', :class => "text-center" do %>
+          <%= f.submit "Submit", :class => "btn btn-success text-center" %>
+      <% end %>
+      <% end %>
   <% end %>
 <% end %>
 
