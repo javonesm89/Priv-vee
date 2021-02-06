@@ -11,7 +11,7 @@ class SavingsController < ApplicationController
     
     def new
         if session[:user_id] && User.exists?(:id => session[:user_id])
-            @saving = @planner.savings.build
+            @planner = Planner.find_by_id(params[:planner_id])
         end
     end
 

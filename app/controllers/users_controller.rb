@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def show
-        if session[:user_id] && User.find_by(:id => session[:user_id])
+        if session[:user_id] && User.exists?(:id => session[:user_id])
             if @user = User.find_by(:id => params[:id])
                 @user
             else

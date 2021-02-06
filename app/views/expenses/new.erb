@@ -13,7 +13,7 @@
 ADD AN EXPENSE
 <p>
 
-<%= form_for @planner do |f| %>
+<%= form_for(@planner) do |f| %>
     <%= f.fields_for :expense_attributes do |i| %> 
         SOURCE: <%= i.text_field :source, :placeholder => "Rent" %>
         AMOUNT: <%= i.number_field :amount, :placeholder => "1350" %>
