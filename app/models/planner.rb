@@ -26,14 +26,14 @@ class Planner < ApplicationRecord
   
 
   def total_incomes
-    Income.where(:user_id => self.id).sum("amount")
+    Income.where(:planner_id => self.id).sum("amount")
   end
 
   def total_savings
-    Saving.where(:user_id => self.id).sum("amount")
+    Saving.where(:planner_id => self.id).sum("amount")
   end
 
   def total_expenses
-    Expense.where(:user_id => self.id).sum("amount")
+    Expense.where(:planner_id => self.id).sum("amount")
   end
 end
