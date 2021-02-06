@@ -22,6 +22,7 @@
     PRO TIP: for 401k, it's typical to invest what your employer matches.<br>
     PRO TIP: for a Safety Net, it's typical to save between 5%-10% of your monthly income.
   <% end %>
+  
         <%= form_for(@planner) do |f| %>
             <%= f.fields_for :savings_attributes do |s| %> 
                 <%= s.label :source, "Source", :class => "form-label" %>
