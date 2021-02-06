@@ -1,11 +1,9 @@
 class SavingsController < ApplicationController
     
     def index
-        if session[:user_id] && User.exists?(:id => session[:user_id])
-            @user = User.find_by(:id => session[:user_id])
-        else
-            flash[:alert]
-            redirect_to login_path
+        if session[:user_id] && @user = User.exists?(:id => params[:user_id])
+            @user = User.find_by_id(params[:user_id])
+            @savings = @user.savings
         end
     end
     
