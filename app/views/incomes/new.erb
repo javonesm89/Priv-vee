@@ -1,10 +1,31 @@
-ADD AN INCOME. DON'T FORGET TO ADD A SOURCE AS WELL.
-<p>
-
-<%= form_for @planner do |f| %>
-    <%= f.fields_for :income_attributes do |i| %> 
-        SOURCE: <%= i.text_field :source, :placeholder => "Freelance" %>
-        AMOUNT: <%= i.number_field :amount, :placeholder => "850" %>
+<% if @errors %>
+  <%= content_tag :div, '',  :id => "error_explanation" %>
+    <%= content_tag :h2 do %>
+      <%= pluralize(@errors.count, "error") %> prohibited you from creating this planner:
     <% end %>
-    <%= f.submit "Submit" %>   
+    <%= content_tag :ul do %>
+      <% @errors.each.uniq do |error| %>
+        <%= content_tag :li do %>
+          <%= error %>
+        <% end %>
+      <% end %>
+    <% end %>
+<% end %>
+
+<% t = Time.now %>
+
+
+<%= content_tag :div, "", :class => "container" do %>
+  <%= content_tag :div, "", :class => "position-relative" do %>
+    <%= content_tag :p, "New Budget", :class => "text-center display-4" %>
+        <%= form_for(@planner) do |f| %>
+            <%= f.fields_for :income_attributes do |i| %> 
+                <%= i.label :source, "Source", :class => "form-label" %>
+                <%= i.text_field :source, :placeholder => "Freelance", :class => "form-control" %>
+                <%= i.label :amount, "Amount", :class => "form-label" %>
+                <%= i.number_field :amount, :placeholder => "850", :class => "form-control" %>
+            <% end %>
+            <%= f.submit "Submit", :class => "btn btn-success position-absolute" %>   
+        <% end %>
+  <% end %>
 <% end %>
