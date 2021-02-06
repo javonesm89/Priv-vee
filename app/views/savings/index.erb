@@ -4,19 +4,22 @@
     </div>
 </nav>
 
-
-
-<%= content_tag :div, "", :class => "py-2 container" do %>   
-    <%= content_tag :h4, "Savings for #{@user.name.capitalize}", :class => "fw-light display-4" %><br>
-    <%= content_tag :h3, "YTD Total: $#{@user.savings.sum("amount")}"%>
-    <%= content_tag :h4, "Sources", :class => "fw-light display-4" %>
-    <% @savings.each do |s| %>
-        <li><%= s.source %>
-    <% end %> 
-<% end %>
-
-<%= content_tag :section, '', :class => "py-5 text-center container" do %>
     
+<%= content_tag :section, "", :class => "py-5 text-center container" do %>
+    <%= content_tag :div, "", :class => "py-5 container" do %>
+        <%= content_tag :h1, "SAVINGS", :class => "fw-light" %>
+        <%= content_tag :h3, "YTD Total: $#{@user.savings.sum("amount")}", :class => "fy-light" %>
+        <%= content_tag :div, "", :class => "py-5 container" do %>
+            <%= content_tag :h4, "Sources", :class => "fw-light text-left" %>
+                <%= content_tag :ul, '', :class => "list-group list group-flush" do %>
+                    <% @user.savings.each do |s| %>
+                        <%= content_tag :li, '', :class => "list-group-item" do %>
+                            <%= s.source %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+        <% end %>
+    <% end %>
 <% end %>
 
 
