@@ -7,8 +7,8 @@
 
 
 <%= content_tag :div, "", :class => "py-2 container" do %>   
-    <%= content_tag :h4, "Savings for #{@savings.user.name.capitalize}", :class => "fw-light display-4" %><br>
-    <%= content_tag :h3, "YTD Total: $#{Saving.sum("amount")}"%>
+    <%= content_tag :h4, "Savings for #{@user.name.capitalize}", :class => "fw-light display-4" %><br>
+    <%= content_tag :h3, "YTD Total: $#{@user.savings.sum("amount")}"%>
     <%= content_tag :h4, "Sources", :class => "fw-light display-4" %>
     <% @savings.each do |s| %>
         <li><%= s.source %>
