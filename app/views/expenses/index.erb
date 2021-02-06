@@ -5,7 +5,7 @@
 </nav>
 
 <%= content_tag :section, "", :class => "py-5 text-center container" do %>   
-    <%= content_tag :h1, "SAVINGS", :class => "fw-light" %>
+    <%= content_tag :h1, "EXPENSES", :class => "fw-light" %>
     <%= content_tag :div, '', :class => "card-group" do %>
         <% @user.expenses.each do |e| %>
             <%= content_tag :div, '', :class => "card" do %>
