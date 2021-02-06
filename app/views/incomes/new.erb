@@ -17,7 +17,7 @@
 
 <%= content_tag :div, "", :class => "container" do %>
   <%= content_tag :div, "", :class => "position-relative" do %>
-    <%= content_tag :p, "New Income", :class => "text-center display-4" %>
+    <%= content_tag :p, "Add Income", :class => "text-center display-4" %>
         <%= form_for(@planner) do |f| %>
             <%= f.fields_for :income_attributes do |i| %> 
                 <%= i.label :source, "Source", :class => "form-label" %>
