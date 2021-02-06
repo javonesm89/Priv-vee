@@ -47,8 +47,8 @@ class PlannersController < ApplicationController
         if @planner.save
             redirect_to user_planner_path(@planner.user_id)
         else
-            flash[:alert] = "NO"
-            redirect_to edit_user_planner_path(@planner.user_id,@planner)
+            @errors = @planner.errors.full_messages
+            render :show
         end
     end
 
