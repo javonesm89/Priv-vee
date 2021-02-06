@@ -30,6 +30,19 @@ class UsersController < ApplicationController
         @user = User.find_by(:id => params[:id])
     end
 
+    def update
+        if session[:user_id] && User.exists?(:id => session[:user_id])
+            @user = User.find_by(:id => params[:id])
+            @user.update(user_params)
+            if @user.save
+                redirect_to user_path(@user)
+            else
+                @errors = @user.errors.full_messages
+                render :edit
+            end
+        end
+    end
+
     private
 
     def user_params
