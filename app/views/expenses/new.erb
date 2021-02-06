@@ -10,13 +10,14 @@
 <% end %>
 
 
-ADD AN EXPENSE
+    <%= content_tag :p, "Add Expense", :class => "text-center display-4" %>
 <p>
-
 <%= form_for(@planner) do |f| %>
-    <%= f.fields_for :expense_attributes do |i| %> 
-        SOURCE: <%= i.text_field :source, :placeholder => "Rent" %>
-        AMOUNT: <%= i.number_field :amount, :placeholder => "1350" %>
-    <% end %>
-    <%= f.submit "Submit" %>   
-<% end %>
+            <%= f.fields_for :expenses_attributes do |s| %> 
+                <%= s.label :source, "Source", :class => "form-label" %>
+                <%= s.text_field :source, :placeholder => "Rent", :class => "form-control" %>
+                <%= s.label :amount, "Amount", :class => "form-label" %>
+                <%= s.number_field :amount, :placeholder => "1350", :class => "form-control" %>
+            <% end %>
+            <%= f.submit "Submit", :class => "btn btn-success position-absolute" %>
+        <% end %>
