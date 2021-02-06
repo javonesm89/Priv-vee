@@ -24,7 +24,7 @@
   <% end %>
   
         <%= form_for(@planner) do |f| %>
-            <%= f.fields_for :savings_attributes do |s| %> 
+            <%= f.fields_for :saving_attributes do |s| %> 
                 <%= s.label :source, "Source", :class => "form-label" %>
                 <%= s.text_field :source, :placeholder => "Safety Net", :class => "form-control" %>
                 <%= s.label :amount, "Amount", :class => "form-label" %>
