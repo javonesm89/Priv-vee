@@ -1,7 +1,6 @@
 class IncomesController < ApplicationController    
     
     def new
-        binding.pry
         if session[:user_id] && User.exists?(:id => params[:user_id])
             @planner = Planner.find_by_id(params[:planner_id])
         end
