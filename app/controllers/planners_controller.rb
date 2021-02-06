@@ -37,13 +37,18 @@ class PlannersController < ApplicationController
         end
     end
 
+    def edit
+        @planner = Planner.find_by(:id => params[:id])
+    end
+    
     def update
         @planner = Planner.find_by(:id => params[:id])
         @planner.update(planner_params)
         if @planner.save
             redirect_to user_planner_path(@planner.user_id)
         else
-            render :edit
+            flash[:alert] = "NO"
+            redirect_to edit_user_planner_path(@planner.user_id,@planner)
         end
     end
 
