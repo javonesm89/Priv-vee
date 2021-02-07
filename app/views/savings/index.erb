@@ -9,17 +9,17 @@
     <%= content_tag :div, "", :class => "py-5 container" do %>
         <%= content_tag :h1, "SAVINGS", :class => "fw-light" %>
         <%= content_tag :h3, "YTD Total: $#{@user.savings.sum("amount")}", :class => "fy-light" %>
-        <%= content_tag :div, "", :class => "py-5 container" do %>
+    <% end %>
+    <%= content_tag :div, "", :class => "py-5 container" do %>
             <%= content_tag :h4, "Sources", :class => "fw-light text-left" %>
-                <%= content_tag :ul, '', :class => "list-group list group-flush" do %>
+                <%= content_tag :ul do %>
                     <% @user.savings.each do |s| %>
-                        <%= content_tag :li, '', :class => "list-group-item" do %>
-                            <%= s.source %>
-                        <% end %>
+                        <%= content_tag :li do %>
+                        <%= s.source %>
+                        <% end%>
                     <% end %>
                 <% end %>
         <% end %>
-    <% end %>
 <% end %>
 
 
