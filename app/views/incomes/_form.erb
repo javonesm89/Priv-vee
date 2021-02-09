@@ -2,7 +2,7 @@
     <%= f.label :source, "Source", :class => "form-label" %>
     <%= f.text_field :source, :class => "form-control", :placeholder => @income.errors.full_messages_for(:source).first || "Engineer" %>
     <%= f.label :amount, "Amount", :class => "form-label" %>
-    <%= f.number_field :amount, :class => "form-control", :placeholder => @planner.errors.full_messages_for(:amount).first || "6500" %>
+    <%= f.number_field :amount, :class => "form-control", :placeholder => @income.errors.full_messages_for(:amount).first || "6500" %>
     <%= content_tag :div, '', :class => "text-center" do %>
         <%= f.submit "Submit", :class => "btn btn-success text-center" %>
     <% end %>
