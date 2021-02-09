@@ -11,13 +11,10 @@ Rails.application.routes.draw do
   
   
   resources :users do
-    resources :savings
-    resources :expenses 
-    resources :planners do
-      resources :incomes
-      resources :savings
-      resources :expenses
-    end
+    resources :planners
+    resources :incomes, :shallow => true
+    resources :savings, :shallow => true 
+    resources :expenses, :shallow => true
   end
 
   delete 'users/:id/planners/:id' => 'planners#destroy'
