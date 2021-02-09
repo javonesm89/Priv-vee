@@ -12,24 +12,10 @@
     <% end %>
 <% end %>
 
-<% t = Time.now %>
-
-
 <%= content_tag :div, "", :class => "container" do %>
   <%= content_tag :div, "", :class => "position-relative" do %>
     <%= content_tag :p, "New Budget", :class => "text-center display-4" %>
-    <%= form_for(@planner) do |f| %>
-      <%= f.hidden_field :user_id, :value => @user.id %>
-      <%= f.label :month, "Month", :class => "form-label"%>
-      <%= f.text_field :month, :class => "form-control", :placeholder => "#{t.strftime("%B")}" %>
-      <%= f.label :goal, "Goal", :class => "form-label" %>
-      <%= f.text_field :goal, :class => "form-control", :placeholder => "Save for August Vacation" %>
-      <%= f.label :amount, "Amount", :class => "form-label" %>
-      <%= f.number_field :amount, :class => "form-control", :placeholder => "2000" %>
-       <%= content_tag :div, '', :class => "text-center" do %>
-          <%= f.submit "Submit", :class => "btn btn-success text-center" %>
-      <% end %>
-      <% end %>
+    <%= render 'planners/form' %>
   <% end %>
 <% end %>
 
