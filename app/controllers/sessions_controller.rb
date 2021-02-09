@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
                 redirect_to user_path(@user)
             end
         else
-            flash[:alert] = "UNABLE TO LOGIN. TRY AGAIN."
+            flash[:alert] = "Unable to login. Make sure e-mail and password are entered."
             redirect_to login_path
         end
     end
