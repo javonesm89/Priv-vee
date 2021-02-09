@@ -1,9 +1,13 @@
+<%= render 'layouts/navbar' %>
+
 <%= content_tag :div, "", :class => "container" do %>
   <%= content_tag :div, "", :class => "position-relative" do %>
     <%= content_tag :p, "New Budget", :class => "text-center display-4" %>
     <%= render 'planners/form' %>
   <% end %>
 <% end %>
+
+
 
 
 
