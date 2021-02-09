@@ -8,7 +8,7 @@
       <%= f.text_field :goal, :class => "form-control", :placeholder => @planner.errors.full_messages_for(:goal).first || "Save for August Vacation" %>
       <%= f.label :amount, "Amount", :class => "form-label" %>
       <%= f.number_field :amount, :class => "form-control", :placeholder => @planner.errors.full_messages_for(:amount).first || "2000" %>
-       <%= content_tag :div, '', :class => "text-center" do %>
-          <%= f.submit "Submit", :class => "btn btn-success text-center" %>
-    <% end %>
+      <%= content_tag :div, '', :class => "text-center" do %>
+            <%= f.submit "Submit", :class => "btn btn-success text-center" %>
+      <% end %>
 <% end %>
