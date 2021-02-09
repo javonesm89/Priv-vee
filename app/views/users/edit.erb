@@ -1,10 +1,4 @@
-<nav class="navbar navbar-light bg-secondary">
-    <div class="container-fluid">
-        <%= link_to "Back to Dashboard", user_path(@user), :class => "navbar-brand" %>
-    </div>
-</nav>
-
-
+<%= render 'layouts/navbar' %>
 <% if @errors %>
   <div id="error_explanation">
     <h2><%= pluralize(@errors.count, "error") %> prohibited you from saving this profile:</h2>
@@ -23,17 +17,7 @@
 
 
 <%= content_tag :section, "", :class => " py-5 container" do %>
-    <%= content_tag :p, "Edit profile:"%>
-            <%= form_for(@user) do |f| %>
-                <%= content_tag :div, "", :class => "text-center" do %>
-                <%= f.label :name, "Name", :class => "form-label" %>
-                <%= f.text_field :name, :class => "form-control" %>
-                <%= f.label :email, "Email", :class => "form-label" %>
-                <%= f.email_field :email, :class => "form-control" %>
-                <%= f.label :name, "Password", :class => "form-label" %>
-                <%= f.password_field :password, :class => "form-control" %><br>
-                <%= f.submit "Edit Account", :class => "btn btn-info"%>
-        <% end %>
-    <% end %>
+  <%= content_tag :p, "Edit profile:"%>
+  <%= render 'users/form' %>
 <% end %>
 
