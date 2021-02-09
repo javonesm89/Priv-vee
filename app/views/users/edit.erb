@@ -1,12 +1,5 @@
 <%= render 'layouts/navbar' %>
 
-<%= content_tag :div, "", :class => "text-center fw-light" do %>
-    <%= flash[:alert] if true %>
-<% end %>
-
-
-
-
 <%= content_tag :section, "", :class => " py-5 container" do %>
   <%= content_tag :p, "Edit profile:"%>
   <%= render 'users/form' %>
