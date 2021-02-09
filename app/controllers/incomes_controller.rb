@@ -1,19 +1,20 @@
 class IncomesController < ApplicationController    
     
     def new
-        # binding.pry
         if params[:planner_id] && Planner.exists?(:id => params[:planner_id])
             @planner = Planner.find_by_id(params[:planner_id])
             @income = @planner.incomes.build
+            @user = @planner.user_id
         end
     end
 
     def create
-        if session[:user_id] && Planner.find_by(:id => params[:planner_id])
+        if planner[:planner_id] && Planner.exists?(:id => params[:planner_id])
             @income = Income.new(income_params)
             if @income.save
                 redirect_to planner_path(@income.planner)
             else
+                @errors = @income.errors.full_messages
                 render :new
             end
         end
