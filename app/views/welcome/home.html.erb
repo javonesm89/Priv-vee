@@ -1,30 +1,28 @@
 <%= flash[:error] if true %>
-<header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
 
-            <p class="navbar-brand d-flex">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16"><path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"/></svg>
-            <p>
-        </div>
-    </div>
-</header>
+<%= content_tag :header do %>
+    <%= content_tag :nav, '', :class => "navbar navbar-dark bg-dark shadow-sm" do %>
+        <%= content_tag :div, '', :class => "container-flui" do %>
+            <%= link_to "Sign Up", new_user_path, :class => "btn btn-primary navbar-brand" %>
+            <%= link_to "Login", login_path, :class => "btn btn-secondary navbar-brand" %>
+        <% end %>
+        <%= content_tag :p, '', :class => "navbar-brand" do %>
+            <%= render "welcome/cash_image" %>
+        <% end %>
+    <% end %>
+<% end %>
 
 <main>
-
   <section class="py-5 text-center container">
+    <%= content_tag :h1, "PriVee", :class => "display-1" %>
     <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">PriVee</h1>
-        <p class="lead text-muted">
-            A financial website that was built using the power of Ruby on Rails. A developer's take on a spreadsheet built with financial and development goals in mind. Explore and enjoy!</p>
-        </p>
-            <%= link_to "Sign Up", new_user_path, :class => "btn btn-primary" %>
-            <%= link_to "Login", login_path, :class => "btn btn-secondary" %>
-        </p>
-      </div>
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <p class="lead text-muted">
+                A financial website that was built using the power of Ruby on Rails. A developer's take on a spreadsheet built with financial and development goals in mind. Explore and enjoy!</p>
+            </p>
+        </div>
     </div>
-  </section>
+
 
     <div class="card-group">
         <div class="card border-light bg-light">
@@ -48,6 +46,7 @@
         </div>
   </div>
 </div>
+</section>
     <%= render "welcome/recognition" %>
 </main>
 
