@@ -1,16 +1,4 @@
-<% if @errors %>
-  <%= content_tag :div, '',  :id => "error_explanation" %>
-    <%= content_tag :h2 do %>
-      <%= pluralize(@errors.count, "error") %> prohibited you from creating this planner:
-    <% end %>
-    <%= content_tag :ul do %>
-      <% @errors.each.uniq do |error| %>
-        <%= content_tag :li do %>
-          <%= error %>
-        <% end %>
-      <% end %>
-    <% end %>
-<% end %>
+<%= render 'layouts/navbar' %>
 
 <% t = Time.now %>
 
