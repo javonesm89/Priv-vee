@@ -18,16 +18,6 @@
 <%= content_tag :div, "", :class => "container" do %>
   <%= content_tag :div, "", :class => "position-relative" do %>
     <%= content_tag :p, "Add Income", :class => "text-center display-4" %>
-        <%= form_for(@planner) do |f| %>
-            <%= f.fields_for :income_attributes do |i| %> 
-                <%= i.label :source, "Source", :class => "form-label" %>
-                <%= i.text_field :source, :placeholder => "Freelance", :class => "form-control" %>
-                <%= i.label :amount, "Amount", :class => "form-label" %>
-                <%= i.number_field :amount, :placeholder => "850", :class => "form-control" %>
-            <% end %>
-        <%= content_tag :div, '', :class => "text-center" do %>
-          <%= f.submit "Submit", :class => "btn btn-success text-center" %>
-        <% end %>
-        <% end %>
+    <%= render 'form' %>
   <% end %>
 <% end %>
