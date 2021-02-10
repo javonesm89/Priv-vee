@@ -1,5 +1,6 @@
 <%= content_tag :div, "", :class => "text-center fw-light" do %>
-    <%= flash[:alert] if true %>
+    <%= flash[:alert] if true %><br>
+    <%= link_to 'SIGNUP', new_user_path if flash[:alert] %>
 <% end %>
 
 <%= content_tag :div, "", :class => "container" do %>
