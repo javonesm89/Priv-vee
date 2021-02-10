@@ -1,13 +1,7 @@
 class UsersController < ApplicationController
+    before_action :set_user, :only => [:show]
+
     def show
-        if session[:user_id] && User.exists?(:id => params[:id])
-            if @user = User.find_by(:id => params[:id])
-                @user
-            else
-                flash[:alert] = 'MUST BE A MEMBER!'
-                redirect_to login_path
-            end
-        end
     end
     
     def new
@@ -44,6 +38,18 @@ class UsersController < ApplicationController
     end
 
     private
+
+    def set_user
+        if session[:user_id] && User.exists?(:id => session[:user_id])
+            @user = User.find_by_id(session[:user_id])
+            if @user
+                @user
+            else
+                flast[:alert] = 'MUST BE A MEMBER!'
+                redirect_to login_path 
+            end
+        end
+    end
 
     def user_params
         params.require(:user).permit(:name,:password,:email)
