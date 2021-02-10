@@ -1,20 +1,26 @@
 class IncomesController < ApplicationController    
     
+    def index
+        if session[:user_id] && @user = User.exists?(:id => [:user_id])
+            @user = User.find_by_id(params[:user_id])
+            @incomes = @user.incomes
+        end
+    end
+    
     def new
-        if params[:planner_id] && Planner.exists?(:id => params[:planner_id])
+        if session[:user_id] && User.exists?(:id => session[:user_id])
             @planner = Planner.find_by_id(params[:planner_id])
-            @income = @planner.incomes.build
-            @user = @planner.user_id
         end
     end
 
     def create
-        if planner[:planner_id] && Planner.exists?(:id => params[:planner_id])
-            @income = Income.new(income_params)
+        if session[:user_id] && User.find_by(:id => session[:user_id])
+            @income = Income.new(incomes_params)
             if @income.save
-                redirect_to planner_path(@income.planner)
+                redirect_to user_path(@income.user)
             else
-                @errors = @income.errors.full_messages
+                @incomes = @saving.user.incomes
+                @errors = @saving.errors.full_messages
                 render :new
             end
         end
