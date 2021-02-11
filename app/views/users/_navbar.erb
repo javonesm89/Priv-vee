@@ -1,0 +1,4 @@
+<% t = Time.now %>
+<%= content_tag :nav, '', :class => "navbar navbar-light bg-secondary" do %>
+    <%= t.strftime("%B - %Y") %>
+<% end %>
