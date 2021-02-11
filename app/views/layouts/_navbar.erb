@@ -1,9 +1,7 @@
 <nav class="navbar navbar-light bg-secondary">
-    <div class="container-fluid">
-            <%= link_to "Back to Dashboard", user_path(@user), :class => "navbar-brand" if @user %>
-            <%= link_to "Sign Up", new_user_path, :class => "btn btn-primary navbar-brand", :display => :none if @user %>
-            <%= link_to "Login", login_path, :class => "btn btn-primary navbar-brand" %>
-            <%= render "welcome/cash_image" %>
-        </div>
+    <div class="container">
+        <%= link_to "INVEST", invest_path, :class => "btn btn-outline-light" %> 
+        <%= link_to "SAVE", save_path, :class => "btn btn-outline-light" %>
+        <%= link_to "SPEND", spend_path, :class => "btn btn-outline-light" %>
     </div>
 </nav>
