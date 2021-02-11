@@ -1,14 +1,3 @@
-<% if @errors %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@errors.count, "error") %> prohibited you from saving this profile:</h2>
-    <ul>
-      <% @errors.each.uniq do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <%= content_tag :nav, '', :class => "navbar navbar-light bg-secondary" do %>
     <%= link_to "Back to Dashboard", user_path(@planner.user_id), :class => "btn btn-outline-light" %>
 <% end %>
@@ -17,50 +6,14 @@
         <%= content_tag :h1, @planner.month, :class => "fw-light" %> 
         <%= content_tag :p, "Goal: #{@planner.goal}" %>
         <%= content_tag :p, "Target: $#{@planner.amount}" %>
-<div class="card-group">
-  <div class="card">
-    <div class="card-body">
-        <%= content_tag :h5, '', :class => "card-title" do %>
-            <%= link_to "Add Income",new_planner_income_path(@planner), :class => "card-title" %>
-        <% end %>
-        <% @planner.incomes.each do |i| %>
-            <%= content_tag :p, "#{i.source} - $#{i.amount}", :class => "card-text" %> 
-        <% end %>
-    </div>
-        <%= content_tag :footer, '', :class => "card-footer" do %>
-            <%= content_tag :small, "Total: $#{@planner.total_incomes}", :class => "card-text" %>
-        <% end %>
-  </div>
-  <div class="card">
-    <div class="card-body">
-        <%= content_tag :h5, '', :class => "card-title" do %>
-            <%= link_to "Add Saving",new_planner_saving_path(@planner), :class => "card-title" %>
-        <% end %>
-        <% @planner.savings.each do |s| %>
-            <%= content_tag :p, "#{s.source} - $#{s.amount}", :class => "card-text" %> 
-        <% end %>
-    </div>
-        <%= content_tag :footer, '', :class => "card-footer" do %>
-            <%= content_tag :small, "Total: $#{@planner.total_savings}", :class => "card-text" %>
-        <% end %>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <%= content_tag :h5, '', :class => "card-title" do %>
-                <%= link_to "Add Expense",new_planner_expense_path(@planner), :class => "card-title" %>
-            <% end %>
-        <% @planner.expenses.each do |e| %>
-            <%= content_tag :p, "#{e.source} - $#{e.amount}", :class => "card-text" %> 
-        <% end %>
-    </div>
-        <%= content_tag :footer, '', :class => "card-footer" do %>
-            <%= content_tag :small, "Total: $#{@planner.total_expenses}", :class => "card-text" %>
-        <% end %>
-  </div>
-</div>
-<p>
-<%= content_tag :h4, "Remaining bugdet: $#{@planner.total_incomes - (@planner.total_savings + @planner.total_expenses)}" %>
 
+    <%= content_tag :div,'',:class => "card-group" do %>
+        <%= render 'display_cards' %>
+    <% end %><br>
+
+    <%= content_tag :h4, "Remaining bugdet: $#{@planner.total_incomes - (@planner.total_savings + @planner.total_expenses)}" %>
+
+    <%= link_to "Delete Budget", @planner, :method => :delete, :class => "btn btn-outline-dark" %>
 
 <% end %>
 

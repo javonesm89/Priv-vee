@@ -1,0 +1,42 @@
+<%= content_tag :div,'',:class => "card" do %>
+    <%= content_tag :div,'',:class => "card-body" do %>
+        <%= content_tag :h5, '', :class => "card-title" do %>
+            <%= link_to "Add Income",new_planner_income_path(@planner), :class => "card-title" %>
+        <% end %>
+        <% @planner.incomes.each do |i| %>
+            <%= content_tag :p, "#{i.source} - $#{i.amount}", :class => "card-text" %> 
+        <% end %>
+    <% end %>
+        <%= content_tag :footer, '', :class => "card-footer" do %>
+            <%= content_tag :small, "Total: $#{@planner.total_incomes}", :class => "card-text" %>
+        <% end %>
+<% end %>
+
+<%= content_tag :div,'',:class => "card" do %>
+    <%= content_tag :div,'',:class => "card-body" do %>
+        <%= content_tag :h5, '', :class => "card-title" do %>
+            <%= link_to "Add Saving",new_planner_saving_path(@planner), :class => "card-title" %>
+        <% end %>
+        <% @planner.savings.each do |s| %>
+            <%= content_tag :p, "#{s.source} - $#{s.amount}", :class => "card-text" %> 
+        <% end %>
+    <% end %>
+        <%= content_tag :footer, '', :class => "card-footer" do %>
+            <%= content_tag :small, "Total: $#{@planner.total_savings}", :class => "card-text" %>
+        <% end %>
+<% end %>
+
+
+<%= content_tag :div,'',:class => "card" do %>
+    <%= content_tag :div,'',:class => "card-body" do %>
+        <%= content_tag :h5, '', :class => "card-title" do %>
+            <%= link_to "Add Expense",new_planner_expense_path(@planner), :class => "card-title" %>
+        <% end %>
+        <% @planner.expenses.each do |e| %>
+            <%= content_tag :p, "#{e.source} - $#{e.amount}", :class => "card-text" %> 
+        <% end %>
+    <% end %>
+        <%= content_tag :footer, '', :class => "card-footer" do %>
+            <%= content_tag :small, "Total: $#{@planner.total_expenses}", :class => "card-text" %>
+        <% end %>
+<% end %>

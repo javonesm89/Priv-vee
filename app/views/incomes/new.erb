@@ -1,7 +1,6 @@
-<%= render 'layouts/navbar' %>
-
-<% t = Time.now %>
-
+<%= content_tag :nav, '', :class => "navbar navbar-light bg-secondary" do %>
+    <%= link_to "Back to Dashboard", user_path(@planner.user_id), :class => "btn btn-outline-light" %>
+<% end %>
 
 <%= content_tag :div, "", :class => "container" do %>
   <%= content_tag :div, "", :class => "position-relative" do %>
