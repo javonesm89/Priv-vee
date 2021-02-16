@@ -21,7 +21,16 @@ class IncomesController < ApplicationController
     end
 
     def create
-        binding.pry
+        if params[:planner_id] && Planner.exists?(:id => params[:planner_id])
+            planner = Planner.find_by(:id => params[:planner_id])
+            @income = Income.new(income_params)
+            if @income.save
+                redirect_to planner_path(planner)
+            else
+                binding.pry
+                render 'incomes/new'
+            end
+        end
     end
 
     def edit

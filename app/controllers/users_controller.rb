@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
-    before_action :set_user, :only => [:show]
+    before_action :set_user, :only => [:show,:edit,:update,:destroy]
 
-    def show
-    end
-    
     def new
         @user = User.new
     end
@@ -16,17 +13,11 @@ class UsersController < ApplicationController
             redirect_to user_path(@user)
         else
             @errors = @user.errors.full_messages
-            render :new
+            render 'users/new'
         end
     end
 
-    def edit
-        @user = User.find_by(:id => params[:id])
-    end
-
     def update
-        if session[:user_id] && User.exists?(:id => session[:user_id])
-            @user = User.find_by(:id => params[:id])
             @user.update(user_params)
             if @user.save
                 redirect_to user_path(@user)
@@ -34,7 +25,10 @@ class UsersController < ApplicationController
                 @errors = @user.errors.full_messages
                 render :edit
             end
-        end
+    end
+
+    def destroy
+        redirect_to root_path if @user.destroy
     end
 
     private

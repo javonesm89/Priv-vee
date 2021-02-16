@@ -1,7 +1,10 @@
-<%= render 'layouts/navbar' %>
+<%= content_tag :nav, '', :class => "navbar navbar-light bg-secondary" do %>
+  <%= link_to "Back to Dashboard", user_path(@user), :class => "btn btn-outline-light" %>
+  <%= link_to "Delete Account", @user, :method => :delete, :class => "btn btn-warning text-center" %>
+<% end %>
 
 <%= content_tag :section, "", :class => " py-5 container" do %>
   <%= content_tag :p, "Edit profile:"%>
-  <%= render 'users/form' %>
+  <%= render 'users/form' %><br>
 <% end %>
 

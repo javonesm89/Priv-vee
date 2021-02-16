@@ -1,5 +1,5 @@
 class PlannersController < ApplicationController
-    
+    before_action :set_planner, :only => [:edit,:destroy]
     def show
         if session[:user_id] && User.exists?(:id => params[:user_id])
            @planner = Planner.find_by(:id => params[:id])
@@ -38,7 +38,6 @@ class PlannersController < ApplicationController
     end
 
     def edit
-        @planner = Planner.find_by(:id => params[:id])
     end
     
     def update
@@ -52,8 +51,19 @@ class PlannersController < ApplicationController
         end
     end
 
+    def destroy
+        binding.pry
+        redirect_to user_path(@planner.user) if @planner.destroy
+    end
+
     private
 
+    def set_planner
+        if session[:user_id] && User.exists?(:id => session[:user_id])
+            @planner = params[:id]
+        end
+    end
+    
     def planner_params
         params.require(:planner).permit(
         :month,
